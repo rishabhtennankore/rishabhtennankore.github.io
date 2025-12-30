@@ -165,7 +165,7 @@ h2 { margin-top: 0; }
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;          /* fill viewport height */
+  min-height: 85vh;          /* fill viewport height */
   margin: 0;                 /* no card spacing */
   border-radius: 0;          /* remove rounded corners */
   overflow: hidden;
@@ -180,7 +180,7 @@ h2 { margin-top: 0; }
     ),
     url("assets/cover.jpg");
   background-size: cover;
-  background-position: 20% 45%;
+  background-position: 20% 35%;
   background-repeat: no-repeat;
 
   display: flex;
@@ -195,14 +195,14 @@ h2 { margin-top: 0; }
 
 .hero__name {
   margin: 0;
-  font-size: clamp(2rem, 2.6vw, 2.6rem);
+  font-size: clamp(2.4rem, 3.2vw, 3.2rem);
   font-weight: 700;
   color: #fff;
 }
 
 .hero__role {
   margin: 10px 0 0 0;
-  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
   color: rgba(255,255,255,0.9);
 }
 
