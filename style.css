@@ -1,37 +1,48 @@
-/* Basic reset */
+/* =========================
+   Base / Reset
+========================= */
 * { box-sizing: border-box; }
-body { 
 
+:root {
+  --accent-blue: #4da3ff;
+}
+
+body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.5;
 }
 
-/* 2-column layout */
+/* =========================
+   2-column layout
+========================= */
 .layout {
   display: flex;
   min-height: 100vh;
 }
 
-/* Left sidebar */
+/* =========================
+   Left sidebar
+========================= */
 .sidebar {
   width: 350px;
-  background-color: #000;       /* black sidebar */
+  background: #000;
   color: #fff;
 
   padding: 28px 20px;
-  position: sticky;     /* stays visible while you scroll */
+  position: sticky;
   top: 0;
   height: 100vh;
 }
 
+/* circular headshot */
 .headshot {
   width: 120px;
   height: 120px;
   object-fit: cover;
-  object-position: 50% 10%;   /* ← shift crop upward */
+  object-position: 50% 10%;
   border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.25);
+  border: 2px solid rgba(255, 255, 255, 0.25);
   display: block;
   margin: 0 auto 16px auto;
 }
@@ -49,23 +60,28 @@ body {
   font-size: 1.15rem;
 }
 
+/* social icons row */
 .social {
   display: flex;
-  gap: 10px;
+  gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 18px;
+  margin: 16px 0 18px 0;
 }
 
 .social a {
-text-decoration: none;
-  color: #fff;
-  border: 1px solid #444;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  color: #bdbdbd;
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
+.social a:hover {
+  color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+/* nav */
 .nav {
   margin-top: 24px;
   display: flex;
@@ -78,135 +94,69 @@ text-decoration: none;
   align-items: center;
   gap: 12px;
 
-  color: #e6e6e6;
+  color: #bdbdbd;
   text-decoration: none;
   font-size: 1.15rem;
   font-weight: 500;
-
-  padding: 6px 4px;       /* spacing without box */
-}
-
-.nav a i {
-  width: 18px;            /* aligns icons vertically */
-  text-align: center;
-  font-size: 1.15rem;
-  opacity: 0.85;
-}
-
-/* Shared hover styling for sidebar nav + social links */
-:root {
-  --accent-blue: #4da3ff;
-}
-
-/* base state */
-.nav a,
-.social a {
-  color: #bdbdbd;
-  text-decoration: none;
+  padding: 6px 4px;
   transition: color 0.15s ease, transform 0.15s ease;
 }
 
-/* icons inherit color */
-.nav a i,
-.social a i {
+.nav a i {
+  width: 20px;       /* aligns icons vertically */
+  text-align: center;
+  font-size: 1.15rem;
   transition: color 0.15s ease;
+  opacity: 0.9;
 }
 
-/* hover effect */
-.nav a:hover,
-.social a:hover {
+.nav a:hover {
   color: var(--accent-blue);
-  transform: translateY(-2px); /* remove if you want no motion */
+  transform: translateY(-2px);
 }
 
-/* ensure icons turn blue too */
-.nav a:hover i,
-.social a:hover i {
+.nav a:hover i {
   color: var(--accent-blue);
 }
 
-/* Right content column: remove the boxed look */
-.content{
+/* =========================
+   Right content column (full-bleed hero)
+========================= */
+.content {
   flex: 1;
-  padding: 0;        /* <-- removes white margins around hero */
-  max-width: none;   /* <-- removes the 900px constraint */
+  padding: 0;      /* important: removes white frame */
+  max-width: none; /* important: no 900px constraint */
   min-width: 0;
 }
 
-section {
-  padding: 20px 0 30px 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-h2 { margin-top: 0; }
-
-/* simple “card” blocks */
-.card {
-  border: 1px solid #eee;
-  border-radius: 16px;
-  padding: 16px;
-  margin: 14px 0;
-}
-
-/* Responsive: stack on mobile */
-@media (max-width: 700px) {
-  .layout { flex-direction: column; }
-  .sidebar {
-    position: relative;
-    height: auto;
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #e6e6e6;
-  }
-  .content { padding: 24px 18px; }
-}
-
-
-/* Mobile: stack + stronger overlay for readability */
-@media (max-width: 700px) {
-  .hero {
-    min-height: 55vh;
-    background-image:
-      linear-gradient(180deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.25) 65%, rgba(0,0,0,0.00) 100%),
-      url("assets/cover.jpg");
-    background-position: 30% 40%;
-  }
-}
-/* FULL-BLEED HERO ON RIGHT SIDE */
+/* hero (Home) section: full-bleed background */
 .hero {
-  position: relative;
   width: 100%;
-  min-height: 100vh;          /* fill viewport height */
-  margin: 0;                 /* no card spacing */
-  border-radius: 0;          /* remove rounded corners */
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
   overflow: hidden;
 
-  /* background image + overlay */
   background-image:
-    linear-gradient(
-      90deg,
-      rgba(0,0,0,0.65) 0%,
-      rgba(0,0,0,0.30) 45%,
-      rgba(0,0,0,0.00) 75%
-    ),
+    linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.30) 45%, rgba(0,0,0,0.00) 75%),
     url("assets/cover.jpg");
   background-size: cover;
-  background-position: 20% 45%;
   background-repeat: no-repeat;
+  background-position: 20% 60%; /* shift DOWN to include arms */
 
   display: flex;
   align-items: center;
 }
 
-/* text block */
 .hero__inner {
   padding: 64px;
-  max-width: 560px;
+  max-width: 640px; /* give name room */
 }
 
 .hero__name {
   margin: 0;
-  white-space: nowrap;   /* prevents line break */
+  white-space: nowrap;
   font-size: clamp(2.4rem, 3.2vw, 3.2rem);
   font-weight: 700;
   color: #fff;
@@ -218,40 +168,56 @@ h2 { margin-top: 0; }
   color: rgba(255,255,255,0.9);
 }
 
-/* remove section divider under hero */
-.content > .hero {
-  border-bottom: none;
-  padding: 0;
-}
-
-/* HERO should be full-bleed: no padding, no divider */
-.hero{
-  width: 100%;
-  min-height: 100vh;     /* whole visible right side */
-  padding: 0 !important;
-  margin: 0 !important;
-  border-bottom: none !important;
-  border-radius: 0 !important;
-
-  background-image:
-    linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.30) 45%, rgba(0,0,0,0.00) 75%),
-    url("assets/cover.jpg");
-  background-size: cover;
-  background-position: 20% 45%;
-  background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
-}
-
-/* Give padding to text overlay only (not the section) */
-.hero__inner{
-  padding: 64px;
-  max-width: 560px;
-}
-
-/* Add padding back to ALL other sections */
-.content section:not(.hero){
+/* all other sections get padding + divider */
+.content section:not(.hero) {
   padding: 40px 50px;
   border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+h2 { margin-top: 0; }
+
+/* card blocks */
+.card {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 14px 0;
+}
+
+/* =========================
+   Responsive (stack on mobile)
+========================= */
+@media (max-width: 700px) {
+  .layout { flex-direction: column; }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+    width: 100%;
+    border-bottom: 1px solid #1d1d1d;
+  }
+
+  /* hero: shorter + different overlay direction */
+  .hero {
+    min-height: 60vh;
+    background-image:
+      linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.00) 100%),
+      url("assets/cover.jpg");
+    background-position: 20% 70%;
+  }
+
+  .hero__inner {
+    padding: 36px 24px;
+  }
+
+  /* allow wrapping on small screens */
+  .hero__name {
+    white-space: normal;
+  }
+
+  /* content padding for non-hero sections on mobile */
+  .content section:not(.hero) {
+    padding: 24px 18px;
+  }
 }
