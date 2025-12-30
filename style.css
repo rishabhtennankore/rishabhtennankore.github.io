@@ -143,7 +143,7 @@ body {
     url("assets/cover.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 20% 60%; /* shift DOWN to include arms */
+  background-position: 20% 65%; /* shift DOWN to include arms */
 
   display: flex;
   align-items: center;
