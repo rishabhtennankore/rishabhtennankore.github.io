@@ -154,18 +154,25 @@ body {
   max-width: 640px; /* give name room */
 }
 
+
+.hero__role {
+ 
+}
+
 .hero__name {
   margin: 0;
   white-space: nowrap;
   font-size: clamp(2.4rem, 3.2vw, 3.2rem);
   font-weight: 700;
-  color: #fff;
+  color: #f2f2f2;                 /* off-white, not pure white */
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
 }
 
 .hero__role {
   margin: 10px 0 0 0;
   font-size: clamp(1.25rem, 1.6vw, 1.5rem);
-  color: rgba(255,255,255,0.9);
+ color: rgba(242,242,242,0.92);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45);
 }
 
 /* all other sections get padding + divider */
