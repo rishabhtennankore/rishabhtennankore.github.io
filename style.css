@@ -180,7 +180,7 @@ h2 { margin-top: 0; }
     ),
     url("assets/cover.jpg");
   background-size: cover;
-  background-position: 20% 55%;
+  background-position: 20% 10%;
   background-repeat: no-repeat;
 
   display: flex;
