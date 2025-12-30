@@ -26,10 +26,10 @@ body {
 }
 
 .headshot {
-  width: 120px;
+ width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 50%;   /* ← this makes it a circle */
   display: block;
   margin: 0 auto 16px auto;
 }
