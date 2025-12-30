@@ -57,7 +57,7 @@ body {
   margin-bottom: 18px;
 }
 
-.social a, .nav a {
+.social a {
 text-decoration: none;
   color: #fff;
   border: 1px solid #444;
@@ -66,21 +66,45 @@ text-decoration: none;
   font-size: 0.9rem;
 }
 
-.social a:hover, .nav a:hover {
+.social a:hover {
   border-color: #888;
 }
   
-
 .nav {
-  margin-top: 10px;
-  display: grid;
-  gap: 10px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .nav a {
-  border-radius: 10px;
-  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #e6e6e6;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  padding: 6px 4px;       /* spacing without box */
 }
+
+.nav a i {
+  width: 18px;            /* aligns icons vertically */
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.nav a:hover {
+  color: #ffffff;
+}
+
+.nav a:hover i {
+  opacity: 1;
+}
+
 
 /* Right content */
 .content {
