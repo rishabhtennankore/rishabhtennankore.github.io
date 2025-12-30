@@ -66,10 +66,6 @@ text-decoration: none;
   font-size: 0.9rem;
 }
 
-.social a:hover {
-  border-color: #888;
-}
-  
 .nav {
   margin-top: 24px;
   display: flex;
@@ -97,14 +93,37 @@ text-decoration: none;
   opacity: 0.85;
 }
 
-.nav a:hover {
-  color: #ffffff;
+/* Shared hover styling for sidebar nav + social links */
+:root {
+  --accent-blue: #4da3ff;
 }
 
-.nav a:hover i {
-  opacity: 1;
+/* base state */
+.nav a,
+.social a {
+  color: #bdbdbd;
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
+/* icons inherit color */
+.nav a i,
+.social a i {
+  transition: color 0.15s ease;
+}
+
+/* hover effect */
+.nav a:hover,
+.social a:hover {
+  color: var(--accent-blue);
+  transform: translateY(-2px); /* remove if you want no motion */
+}
+
+/* ensure icons turn blue too */
+.nav a:hover i,
+.social a:hover i {
+  color: var(--accent-blue);
+}
 
 /* Right content */
 .content {
