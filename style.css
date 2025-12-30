@@ -160,52 +160,57 @@ h2 { margin-top: 0; }
   .content { padding: 24px 18px; }
 }
 
-/* 2) HERO background (paste at the BOTTOM of style.css) */
-/* Put your cover photo in: assets/cover.jpg (or change the path below) */
-
+/* FULL-BLEED HERO ON RIGHT SIDE */
 .hero {
   position: relative;
-  min-height: 70vh;
-  border-radius: 20px;
+  width: 100%;
+  min-height: 100vh;          /* fill viewport height */
+  margin: 0;                 /* no card spacing */
+  border-radius: 0;          /* remove rounded corners */
   overflow: hidden;
 
-  /* background image */
+  /* background image + overlay */
   background-image:
-    linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.00) 100%),
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.65) 0%,
+      rgba(0,0,0,0.30) 45%,
+      rgba(0,0,0,0.00) 75%
+    ),
     url("assets/cover.jpg");
   background-size: cover;
-  background-position: 20% 45%;  /* tweak to frame mountains/space */
+  background-position: 20% 45%;
   background-repeat: no-repeat;
 
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 
+/* text block */
 .hero__inner {
-  padding: 28px 28px 26px 28px;
-  max-width: 520px;
+  padding: 64px;
+  max-width: 560px;
 }
 
 .hero__name {
   margin: 0;
-  font-size: clamp(1.6rem, 2.2vw, 2.3rem);
+  font-size: clamp(2rem, 2.6vw, 2.6rem);
   font-weight: 700;
   color: #fff;
-  letter-spacing: 0.2px;
 }
 
 .hero__role {
-  margin: 8px 0 0 0;
-  font-size: clamp(1.0rem, 1.3vw, 1.2rem);
+  margin: 10px 0 0 0;
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
   color: rgba(255,255,255,0.9);
 }
 
-/* make hero full-width within your content column */
-.content .hero {
-  width: 100%;
-  margin-bottom: 28px;
-  border-bottom: none; /* overrides your section border if needed */
+/* remove section divider under hero */
+.content > .hero {
+  border-bottom: none;
+  padding: 0;
 }
+
 
 /* Mobile: stack + stronger overlay for readability */
 @media (max-width: 700px) {
