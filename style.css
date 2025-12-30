@@ -14,13 +14,14 @@ body {
 
 /* Left sidebar */
 .sidebar {
+  width: 280px;
+  background-color: #000;       /* black sidebar */
+  color: #fff;
+
+  padding: 28px 20px;
   position: sticky;     /* stays visible while you scroll */
   top: 0;
   height: 100vh;
-  width: 280px;
-  padding: 28px 20px;
-  border-right: 1px solid #e6e6e6;
-  background: #fff;
 }
 
 .headshot {
