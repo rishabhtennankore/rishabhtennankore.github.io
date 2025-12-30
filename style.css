@@ -26,9 +26,10 @@ body {
 }
 
 .headshot {
-  width: 100%;
-  max-width: 180px;
-  border-radius: 16px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 14px;
   display: block;
   margin: 0 auto 16px auto;
 }
@@ -41,7 +42,7 @@ body {
 
 .tagline {
   margin: 0 0 14px 0;
-  color: #555;
+  color: #9ecbff; /* soft blue */
   text-align: center;
   font-size: 0.95rem;
 }
@@ -55,17 +56,18 @@ body {
 }
 
 .social a, .nav a {
-  text-decoration: none;
-  color: #111;
-  border: 1px solid #ddd;
+text-decoration: none;
+  color: #fff;
+  border: 1px solid #444;
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 0.9rem;
 }
 
 .social a:hover, .nav a:hover {
-  border-color: #999;
+  border-color: #888;
 }
+  
 
 .nav {
   margin-top: 10px;
