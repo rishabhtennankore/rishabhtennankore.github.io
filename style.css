@@ -1,7 +1,6 @@
 /* Basic reset */
 * { box-sizing: border-box; }
 body { 
- border: 10px solid red !important; 
 
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
