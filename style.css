@@ -176,8 +176,11 @@ body {
 }
 
 .hero__dynamic {
+  color: #9ecbff;
   font-weight: 600;
+  transition: color 0.3s ease;
 }
+
 
 .cursor {
   display: inline-block;
