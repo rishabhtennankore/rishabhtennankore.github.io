@@ -258,6 +258,17 @@ h2 { margin-top: 0; }
   margin-top: 16px;
 }
 
+.edu-list-lines a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.edu-list-lines a:hover {
+  opacity: 0.85;
+}
+
+
 @media (min-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr 1.4fr;
