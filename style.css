@@ -176,8 +176,10 @@ body {
 }
 
 .hero__dynamic {
-  color: #9ecbff;
+  font-size: clamp(1.6rem, 2.1vw, 2.0rem); /* larger than role line */
   font-weight: 600;
+  color: #9ecbff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.45);
   transition: color 0.3s ease;
 }
 
