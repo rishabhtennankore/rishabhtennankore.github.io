@@ -96,8 +96,10 @@
               />
             </div>
 
-            <!-- RIGHT: highlights + CTA + metrics -->
+            <!-- RIGHT: highlights + CTA + metrics (metrics OUTSIDE highlights) -->
             <div class="about-card">
+
+              <!-- HIGHLIGHTS BOX -->
               <div class="highlight">
                 <dt>Highlights</dt>
                 <dd>
@@ -148,7 +150,7 @@
                     </div>
                   </div>
 
-                  <!-- CTA (only links/icons are blue via your CSS) -->
+                  <!-- CTA stays inside Highlights box (as the conclusion line for Highlights) -->
                   <p class="about-cta">
                     Check out my
                     <a href="#resume" class="cta-link">
@@ -162,36 +164,37 @@
                     </a>
                     for more details.
                   </p>
-
-                  <!-- METRICS ROW (below CTA, not boxed) -->
-                  <div class="metrics-row">
-                    <div class="metric-item">
-                      <i class="fas fa-flask"></i>
-                      <div class="metric-text">
-                        <div class="metric-top"><strong>8+</strong> years</div>
-                        <div class="metric-sub">hands-on research &amp; R&amp;D</div>
-                      </div>
-                    </div>
-
-                    <div class="metric-item">
-                      <i class="fas fa-book-open"></i>
-                      <div class="metric-text">
-                        <div class="metric-top"><strong>6</strong> pubs</div>
-                        <div class="metric-sub">peer-reviewed publications</div>
-                      </div>
-                    </div>
-
-                    <div class="metric-item">
-                      <i class="fas fa-users"></i>
-                      <div class="metric-text">
-                        <div class="metric-top"><strong>3+</strong> years</div>
-                        <div class="metric-sub">technical outreach</div>
-                      </div>
-                    </div>
-                  </div>
-
                 </dd>
               </div>
+              <!-- END HIGHLIGHTS BOX -->
+
+              <!-- ✅ METRICS OUTSIDE HIGHLIGHTS BOX -->
+              <div class="metrics-row">
+                <div class="metric-item">
+                  <i class="fas fa-flask"></i>
+                  <div class="metric-text">
+                    <div class="metric-top"><strong>8+</strong> years</div>
+                    <div class="metric-sub">hands-on research &amp; R&amp;D</div>
+                  </div>
+                </div>
+
+                <div class="metric-item">
+                  <i class="fas fa-book-open"></i>
+                  <div class="metric-text">
+                    <div class="metric-top"><strong>6</strong> pubs</div>
+                    <div class="metric-sub">peer-reviewed publications</div>
+                  </div>
+                </div>
+
+                <div class="metric-item">
+                  <i class="fas fa-users"></i>
+                  <div class="metric-text">
+                    <div class="metric-top"><strong>3+</strong> years</div>
+                    <div class="metric-sub">technical outreach</div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -201,7 +204,6 @@
   </div>
 
   <script>
-    // Typewriter phrases (edit these)
     const phrases = [
       "a Materials Scientist.",
       "a CAD Builder.",
@@ -215,10 +217,10 @@
     let charIndex = 0;
     let deleting = false;
 
-    const typeSpeed = 55;      // typing speed (ms)
-    const deleteSpeed = 35;    // deleting speed (ms)
-    const holdTime = 1100;     // pause at full phrase (ms)
-    const nextDelay = 250;     // pause before typing next (ms)
+    const typeSpeed = 55;
+    const deleteSpeed = 35;
+    const holdTime = 1100;
+    const nextDelay = 250;
 
     function tick() {
       const current = phrases[phraseIndex];
