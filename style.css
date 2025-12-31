@@ -633,7 +633,43 @@ h2 { margin-top: 0; }
 .section.resume .resume-left{ padding-right: 1.25rem; }
 .section.resume .resume-right{ padding-left: 1.25rem; }
 
+/* ===== Resume typography hierarchy (de-crowding) ===== */
 
+/* Main Resume section header stays large — do NOT touch */
+/* h2.section-title already controlled elsewhere */
+
+/* 1) Resume internal section headers */
+.section.resume .resume-h{
+  font-size: clamp(1.15rem, 1.05rem + 0.3vw, 1.35rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* 2) Company / University names */
+.section.resume .resume-subhead{
+  font-size: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+  font-weight: 400;
+}
+
+/* 3) Job titles (ALL CAPS, lighter, smaller) */
+.section.resume .resume-subhead2{
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+}
+
+/* 4) Degree / program line */
+.section.resume .resume-subsub{
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* 5) Dates: slightly smaller so they don’t compete */
+.section.resume .resume-date{
+  font-size: 0.85rem;
+}
 /* =========================
    Responsive (stack on mobile)
 ========================= */
