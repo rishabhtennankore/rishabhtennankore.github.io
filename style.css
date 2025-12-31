@@ -43,7 +43,6 @@ body {
   width: 350px;
   background: #000;
   color: #fff;
-
   padding: 28px 20px;
   position: sticky;
   top: 0;
@@ -70,7 +69,7 @@ body {
 
 .tagline {
   margin: 0 0 14px 0;
-  color: #9ecbff; /* soft blue */
+  color: #9ecbff;
   text-align: center;
   font-size: 1.15rem;
 }
@@ -108,7 +107,6 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-
   color: #bdbdbd;
   text-decoration: none;
   font-size: 1.15rem;
@@ -144,7 +142,7 @@ body {
   min-width: 0;
 }
 
-/* hero (Home) section: full-bleed background */
+/* hero section */
 .hero {
   width: 100%;
   min-height: 100vh;
@@ -200,11 +198,9 @@ body {
   animation: blink 1s steps(1) infinite;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
-}
+@keyframes blink { 50% { opacity: 0; } }
 
-/* all other sections get padding + divider */
+/* all other sections */
 .content section:not(.hero) {
   padding: 40px 50px;
   border-bottom: 1px solid #f0f0f0;
@@ -258,9 +254,9 @@ h2 { margin-top: 0; }
 ========================= */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.1fr 18px 1.2fr;
-  margin-left: -20px;
-  margin-right: -20px;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 16px;
 }
 
 @media (min-width: 900px) {
@@ -271,7 +267,6 @@ h2 { margin-top: 0; }
   }
 }
 
-/* About cards (used for headshot + right content) */
 .about-card {
   background: var(--card);
   border: 1px solid rgba(0,0,0,0.08);
@@ -289,9 +284,7 @@ h2 { margin-top: 0; }
   border: 1px solid rgba(0,0,0,0.08);
 }
 
-/* =========================
-   Highlights box
-========================= */
+/* Highlights box */
 .highlight {
   padding: 12px;
   border-radius: 14px;
@@ -307,11 +300,8 @@ h2 { margin-top: 0; }
   margin-bottom: 16px;
 }
 
-.highlight dd {
-  margin: 0;
-}
+.highlight dd { margin: 0; }
 
-/* Two-column layout inside highlights */
 .highlights-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -334,11 +324,8 @@ h2 { margin-top: 0; }
   gap: 22px;
 }
 
-.edu-headings > li {
-  line-height: 1.5;
-}
+.edu-headings > li { line-height: 1.5; }
 
-/* Subcontent: no bullets, flush left (inside same li) */
 .edu-lines {
   margin-top: 10px;
   display: grid;
@@ -350,14 +337,9 @@ h2 { margin-top: 0; }
   text-decoration: none;
 }
 
-.edu-lines a:hover {
-  color: var(--accent-blue);
-  opacity: 0.9;
-}
+.edu-lines a:hover { opacity: 0.9; }
 
-/* =========================
-   CTA line (only Resume/Portfolio blue)
-========================= */
+/* CTA line */
 .about-cta {
   margin-top: 18px;
   font-size: 0.95rem;
@@ -373,21 +355,13 @@ h2 { margin-top: 0; }
   gap: 6px;
 }
 
-.about-cta .cta-link i {
-  color: var(--accent-blue);
-}
+.about-cta .cta-link i { color: var(--accent-blue); }
 
 .about-cta .cta-link:hover,
-.about-cta .cta-link:hover i {
-  color: var(--accent-blue);
-  opacity: 0.9;
-}
+.about-cta .cta-link:hover i { opacity: 0.9; }
 
-/* =========================
-   Metrics row
-========================= */
+/* Metrics row */
 .metrics-row {
-  grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -413,23 +387,11 @@ h2 { margin-top: 0; }
   flex: 0 0 auto;
 }
 
-.metrics-full {
-  grid-column: 1 / -1;
-}
+.metric-text { display: grid; gap: 2px; }
 
-.metric-text {
-  display: grid;
-  gap: 2px;
-}
+.metric-top { color: var(--text); font-size: 1rem; }
 
-.metric-top {
-  color: var(--text);
-  font-size: 1rem;
-}
-
-.metric-top strong {
-  font-weight: 800;
-}
+.metric-top strong { font-weight: 800; }
 
 .metric-sub {
   color: var(--muted);
@@ -438,14 +400,11 @@ h2 { margin-top: 0; }
 }
 
 /* =========================
-   Resume section (wide + flush-left)
+   Resume section
 ========================= */
-.section.resume{
-  padding-top: 3.5rem;
-}
+.section.resume { padding-top: 3.5rem; }
 
-/* Ensure resume wrappers do not add extra indent.
-   The section padding (40px 50px) defines the left edge. */
+/* keep resume content aligned to section padding */
 .resume-full .section-head,
 .resume-full .resume-grid,
 .resume-full .resume-cta{
@@ -456,34 +415,27 @@ h2 { margin-top: 0; }
   padding-right: 0;
 }
 
-/* Section head: flush left */
 .section.resume .section-head{
   padding: 0;
   margin: 0 0 1.25rem 0;
 }
 
-/* Grid: full width within 1400px */
 .section.resume .resume-grid{
   margin: 1rem 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr 18px 1.35fr;
+  grid-template-columns: 1fr 18px 1fr; /* equal columns */
   gap: 0;
   align-items: start;
 }
 
-/* Columns: remove left/right padding that caused indent */
 .section.resume .resume-col{
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 1.25rem 0;
 }
 
-.section.resume .resume-left{ padding-right: 1.2rem; }
-.section.resume .resume-right{ padding-left: 1.2rem; }
+.section.resume .resume-left{ padding-right: 1.25rem; }
+.section.resume .resume-right{ padding-left: 1.25rem; }
 
-/* Divider */
 .section.resume .resume-divider{
   width: 2px;
   height: 100%;
@@ -498,95 +450,89 @@ h2 { margin-top: 0; }
   opacity: .9;
 }
 
-/* Blocks inside columns */
-.section.resume .resume-block + .resume-block{
-  margin-top: 1.6rem;
-}
+.section.resume .resume-block + .resume-block{ margin-top: 1.6rem; }
 
-.section.resume .resume-h{
-  font-size: var(--section-title-size);
-  font-weight: 800;
-  margin: 0 0 .85rem;
-  letter-spacing: -0.01em;
-}
-
-/* Subheaders same size as resume-h but NOT bold */
-.section.resume .resume-subhead{
-  font-size: var(--section-title-size);
-  font-weight: 400;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-/* Dates: accent pill */
-.section.resume .resume-date{
-  display: inline-block;
-  margin-top: .35rem;
-  padding: .28rem .55rem;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: .95rem;
-  letter-spacing: .02em;
-
-  color: var(--text);
-  background: var(--accent-2);
-  border: 1px solid rgba(77,163,255,.35);
-}
-
-/* Program / degree */
-.section.resume .resume-subsub{
-  margin-top: .6rem;
-  font-size: var(--highlight-title-size);
-  font-weight: 800;
-}
-
-/* Normal body */
-.section.resume .resume-text{
-  margin-top: .35rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* Resume items spacing */
 .section.resume .resume-item + .resume-item{
   margin-top: 1.3rem;
   padding-top: 1.1rem;
   border-top: 1px solid rgba(15, 23, 42, .10);
 }
 
-/* Bullets spacing */
+/* Resume typography hierarchy */
+.section.resume .resume-h{
+  font-size: clamp(1.15rem, 1.05rem + 0.3vw, 1.35rem);
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.section.resume .resume-subhead{
+  font-size: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+  font-weight: 400;
+  margin: 0;
+}
+
+.section.resume .resume-subhead2{
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+  color: var(--text);
+}
+
+.section.resume .resume-date{
+  display: inline-block;
+  margin-top: 0.35rem;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  background: var(--accent-2);
+  border: 1px solid rgba(77,163,255,.35);
+}
+
+.section.resume .resume-subsub{
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.section.resume .resume-text{
+  margin-top: 0.35rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .section.resume .resume-bullets{
-  margin: .75rem 0 0;
+  margin: 0.75rem 0 0;
   padding-left: 1.2rem;
   display: grid;
-  gap: .55rem;
+  gap: 0.55rem;
   color: var(--muted);
   line-height: 1.55;
 }
 
-.section.resume .resume-bullets li{
-  margin: 0;
-}
+.section.resume .resume-bullets li{ margin: 0; }
 
-/* Skills tags */
 .section.resume .skills-wrap{
   display: flex;
   flex-wrap: wrap;
-  gap: .55rem;
+  gap: 0.55rem;
 }
 
 .section.resume .skill{
   display: inline-flex;
   align-items: center;
-  padding: .38rem .6rem;
+  padding: 0.38rem 0.6rem;
   border-radius: 999px;
   border: 1px solid rgba(15, 23, 42, .14);
   background: rgba(255,255,255,.7);
-  font-size: .95rem;
+  font-size: 0.95rem;
   color: rgba(15,23,42,.82);
 }
 
-/* CTA */
 .section.resume .resume-cta{
   margin: 1.25rem 0 0;
   padding: 0;
@@ -598,8 +544,8 @@ h2 { margin-top: 0; }
 .btn{
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
-  padding: .75rem 1rem;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
   border-radius: 12px;
   border: 1px solid rgba(15, 23, 42, .14);
   text-decoration: none;
@@ -612,64 +558,6 @@ h2 { margin-top: 0; }
   color: var(--text);
 }
 
-/* ===== Resume: equal columns + ALL CAPS titles (not bold) ===== */
-
-/* Job title line: ALL CAPS, same size as company name, NOT bold */
-.section.resume .resume-subhead2{
-  font-size: var(--section-title-size);  /* same as .resume-subhead */
-  font-weight: 400;                     /* not bold */
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-top: 0.15rem;
-  color: var(--text);
-}
-
-/* Make columns more equal (stop right column dominating) */
-.section.resume .resume-grid{
-  grid-template-columns: 1fr 18px 1fr;  /* equal columns */
-}
-
-/* Keep divider gutters reasonable (optional; remove if you like current spacing) */
-.section.resume .resume-left{ padding-right: 1.25rem; }
-.section.resume .resume-right{ padding-left: 1.25rem; }
-
-/* ===== Resume typography hierarchy (de-crowding) ===== */
-
-/* Main Resume section header stays large — do NOT touch */
-/* h2.section-title already controlled elsewhere */
-
-/* 1) Resume internal section headers */
-.section.resume .resume-h{
-  font-size: clamp(1.15rem, 1.05rem + 0.3vw, 1.35rem);
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-
-/* 2) Company / University names */
-.section.resume .resume-subhead{
-  font-size: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
-  font-weight: 400;
-}
-
-/* 3) Job titles (ALL CAPS, lighter, smaller) */
-.section.resume .resume-subhead2{
-  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-top: 0.1rem;
-}
-
-/* 4) Degree / program line */
-.section.resume .resume-subsub{
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-/* 5) Dates: slightly smaller so they don’t compete */
-.section.resume .resume-date{
-  font-size: 0.85rem;
-}
 /* =========================
    Responsive (stack on mobile)
 ========================= */
@@ -691,15 +579,9 @@ h2 { margin-top: 0; }
     background-position: 20% 70%;
   }
 
-  .hero__inner {
-    padding: 36px 24px;
-  }
+  .hero__inner { padding: 36px 24px; }
 
-  .hero__name {
-    white-space: normal;
-  }
+  .hero__name { white-space: normal; }
 
-  .content section:not(.hero) {
-    padding: 24px 18px;
-  }
+  .content section:not(.hero) { padding: 24px 18px; }
 }
