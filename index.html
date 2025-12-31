@@ -96,11 +96,10 @@
               />
             </div>
 
-            <!-- RIGHT: highlights + CTA (this is the key change) -->
+            <!-- RIGHT: highlights + CTA + metrics -->
             <div class="about-card">
               <div class="highlight">
                 <dt>Highlights</dt>
-
                 <dd>
                   <div class="highlights-grid">
                     <!-- LEFT COLUMN -->
@@ -148,53 +147,49 @@
                       </ul>
                     </div>
                   </div>
-<div class="about-card">
-  <div class="highlight">
-    
-    <!-- your existing Highlights dt/dd + 2-column grid -->
-  </div>
-  
-    <!-- metrics -->
 
-<div class="metrics transition-metrics">
-  <div class="metric">
-    <i class="fas fa-flask"></i>
-    <div class="metric__text">
-      <div class="metric__value">8+ years</div>
-      <div class="metric__label">Experimental research &amp; R&amp;D</div>
-    </div>
-  </div>
+                  <!-- CTA (only links/icons are blue via your CSS) -->
+                  <p class="about-cta">
+                    Check out my
+                    <a href="#resume" class="cta-link">
+                      <i class="fas fa-file-lines"></i>
+                      Resume
+                    </a>
+                    and
+                    <a href="#portfolio" class="cta-link">
+                      <i class="fas fa-briefcase"></i>
+                      Portfolio
+                    </a>
+                    for more details.
+                  </p>
 
-  <div class="metric">
-    <i class="fas fa-book-open"></i>
-    <div class="metric__text">
-      <div class="metric__value">6 publications</div>
-      <div class="metric__label">Peer-reviewed journals</div>
-    </div>
-  </div>
+                  <!-- METRICS ROW (below CTA, not boxed) -->
+                  <div class="metrics-row">
+                    <div class="metric-item">
+                      <i class="fas fa-flask"></i>
+                      <div class="metric-text">
+                        <div class="metric-top"><strong>8+</strong> years</div>
+                        <div class="metric-sub">hands-on research &amp; R&amp;D</div>
+                      </div>
+                    </div>
 
-  <div class="metric">
-    <i class="fas fa-users"></i>
-    <div class="metric__text">
-      <div class="metric__value">3+ years</div>
-      <div class="metric__label">STEM Outreach &amp; mentoring</div>
-    </div>
-  </div>
-</div>
-                  <!-- CTA: spans under the columns, but aligned to the right text card (flush with headshot column edge) -->
-                 <p class="about-cta">
-  Check out my
-  <a href="#resume" class="cta-link">
-    <i class="fas fa-file-lines"></i>
-    Resume
-  </a>
-  and
-  <a href="#portfolio" class="cta-link">
-    <i class="fas fa-briefcase"></i>
-    Portfolio
-  </a>
-  for more details.
-</p>
+                    <div class="metric-item">
+                      <i class="fas fa-book-open"></i>
+                      <div class="metric-text">
+                        <div class="metric-top"><strong>6</strong> pubs</div>
+                        <div class="metric-sub">peer-reviewed publications</div>
+                      </div>
+                    </div>
+
+                    <div class="metric-item">
+                      <i class="fas fa-users"></i>
+                      <div class="metric-text">
+                        <div class="metric-top"><strong>3+</strong> years</div>
+                        <div class="metric-sub">technical outreach</div>
+                      </div>
+                    </div>
+                  </div>
+
                 </dd>
               </div>
             </div>
@@ -229,19 +224,16 @@
       const current = phrases[phraseIndex];
 
       if (!deleting) {
-        // typing
         charIndex++;
         el.textContent = current.slice(0, charIndex);
 
         if (charIndex >= current.length) {
-          // hold, then start deleting
           setTimeout(() => { deleting = true; tick(); }, holdTime);
           return;
         }
 
         setTimeout(tick, typeSpeed);
       } else {
-        // deleting
         charIndex--;
         el.textContent = current.slice(0, charIndex);
 
@@ -256,7 +248,6 @@
       }
     }
 
-    // Start
     tick();
   </script>
 </body>
