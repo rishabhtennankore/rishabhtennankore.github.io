@@ -171,8 +171,23 @@ body {
 .hero__role {
   margin: 10px 0 0 0;
   font-size: clamp(1.25rem, 1.6vw, 1.5rem);
- color: rgba(242,242,242,0.92);
+  color: rgba(242,242,242,0.92);
   text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+}
+
+.hero__dynamic {
+  font-weight: 600;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  opacity: 0.9;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 /* all other sections get padding + divider */
