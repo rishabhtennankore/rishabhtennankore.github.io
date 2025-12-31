@@ -272,11 +272,12 @@ h2 { margin-top: 0; }
 /* Bullets only for top-level headings */
 .edu-headings {
   list-style: disc;
-  padding-left: 18px; /* controls bullet position */
+  padding-left: 18px;
   margin: 0;
   display: grid;
-  gap: 14px;
+  gap: 22px; /* increased spacing between headers */
 }
+
 
 .edu-headings > li {
   line-height: 1.5;
@@ -284,9 +285,9 @@ h2 { margin-top: 0; }
 
 /* Subcontent: no bullets, no indentation */
 .edu-lines {
-  margin-top: 6px;
+  margin-top: 10px;
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .edu-lines a {
