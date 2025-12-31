@@ -612,6 +612,68 @@ h2 { margin-top: 0; }
   color: var(--text);
 }
 
+/* =========================
+   Resume tuning patch
+   (titles, width, balance)
+========================= */
+
+/* 1) Job titles: ALL CAPS, same size as company name */
+.section.resume .resume-subhead2 {
+  font-size: var(--section-title-size); /* same as resume-subhead */
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+  color: var(--text);
+}
+
+/* Slight separation between company + title */
+.section.resume .resume-subhead + .resume-subhead2 {
+  margin-top: 0.15rem;
+}
+
+/* 2) Make resume wider + columns more equal */
+.resume-full .section-head,
+.resume-full .resume-grid,
+.resume-full .resume-cta {
+  max-width: 1600px;   /* wider usable area */
+}
+
+/* Nearly equal columns, reduce dominance of right column */
+.section.resume .resume-grid {
+  grid-template-columns: 1.05fr 16px 1.05fr;
+}
+
+/* Reduce gutter padding to gain text width */
+.section.resume .resume-left {
+  padding-right: 1rem;
+}
+
+.section.resume .resume-right {
+  padding-left: 1rem;
+}
+
+/* Pull grid slightly outward to reduce perceived margins */
+.section.resume .resume-grid {
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+/* 3) Keep university names on one line (desktop only) */
+@media (min-width: 900px) {
+  .section.resume .resume-subhead {
+    white-space: nowrap;
+  }
+}
+
+/* Safety: allow wrapping again on small screens */
+@media (max-width: 900px) {
+  .section.resume .resume-subhead {
+    white-space: normal;
+  }
+}
+
+
 /* Resume responsive */
 @media (max-width: 900px){
   .section.resume .resume-grid{
