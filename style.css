@@ -266,12 +266,12 @@ h2 { margin-top: 0; }
 
 /* highlights section */
 .edu-list-lines a {
-  color: var(--accent);
+  color: var(--accent-blue);
   text-decoration: none;
 }
 
 .edu-list-lines a:hover {
-  color: var(--accent);
+  color: var(--accent-blue);
 }
 
 
