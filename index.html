@@ -106,6 +106,61 @@
       </section>
     </main>
   </div>
+
+  <script>
+  // Typewriter phrases (edit these)
+  const phrases = [
+    "a Materials Scientist.",
+    "a CAD Builder.",
+    "a Technical Consultant.",
+    "a Cooking Nerd."
+  ];
+
+  const el = document.getElementById("typewriter");
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  const typeSpeed = 55;      // typing speed (ms)
+  const deleteSpeed = 35;    // deleting speed (ms)
+  const holdTime = 1100;     // pause at full phrase (ms)
+  const nextDelay = 250;     // pause before typing next (ms)
+
+  function tick() {
+    const current = phrases[phraseIndex];
+
+    if (!deleting) {
+      // typing
+      charIndex++;
+      el.textContent = current.slice(0, charIndex);
+
+      if (charIndex >= current.length) {
+        // hold, then start deleting
+        setTimeout(() => { deleting = true; tick(); }, holdTime);
+        return;
+      }
+
+      setTimeout(tick, typeSpeed);
+    } else {
+      // deleting
+      charIndex--;
+      el.textContent = current.slice(0, charIndex);
+
+      if (charIndex <= 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(tick, nextDelay);
+        return;
+      }
+
+      setTimeout(tick, deleteSpeed);
+    }
+  }
+
+  // Start
+  tick();
+</script>
 </body>
 </html>
 
