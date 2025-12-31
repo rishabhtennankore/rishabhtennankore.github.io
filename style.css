@@ -284,7 +284,7 @@ h2 { margin-top: 0; }
 }
 
 .highlight > dt {
-  font-size: 1.15rem;        /* larger than body, smaller than section title */
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
   font-weight: 700;
   letter-spacing: 0.08em;   /* key for clean all-caps look */
   text-transform: uppercase;
