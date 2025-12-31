@@ -616,6 +616,16 @@ h2 { margin-top: 0; }
   color: var(--text);
 }
 
+/* Resume should be wider than About container */
+.resume-full .section-head,
+.resume-full .resume-grid,
+.resume-full .resume-cta{
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
 /* Responsive: stack columns nicely */
 @media (max-width: 900px){
   .resume-grid{
