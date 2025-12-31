@@ -233,7 +233,7 @@ h2 { margin-top: 0; }
   padding-bottom: 10px;
 }
 
-.accent-underline::after {
+.accent-underline::after{
   content: "";
   position: absolute;
   left: 0;
@@ -241,7 +241,7 @@ h2 { margin-top: 0; }
   width: 56px;
   height: 4px;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--accent, #7c5cff); /* fallback if --accent isn't defined */
 }
 
 .section-subtitle {
