@@ -258,9 +258,9 @@ h2 { margin-top: 0; }
 ========================= */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-  margin-top: 16px;
+  grid-template-columns: 1.1fr 18px 1.2fr;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 @media (min-width: 900px) {
@@ -480,8 +480,8 @@ h2 { margin-top: 0; }
   padding-right: 0;
 }
 
-.section.resume .resume-left{ padding-right: 1.5rem; }
-.section.resume .resume-right{ padding-left: 1.5rem; }
+.section.resume .resume-left{ padding-right: 1.2rem; }
+.section.resume .resume-right{ padding-left: 1.2rem; }
 
 /* Divider */
 .section.resume .resume-divider{
