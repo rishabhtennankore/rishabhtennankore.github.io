@@ -357,6 +357,49 @@ h2 { margin-top: 0; }
   opacity: 0.9;
 }
 
+.metrics-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.metric-item{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 170px;
+}
+
+.metric-item i{
+  color: var(--accent-blue);
+  font-size: 1.35rem; /* larger icon */
+  line-height: 1;
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+
+.metric-text{
+  display: grid;
+  gap: 2px;
+}
+
+.metric-top{
+  color: var(--text);
+  font-size: 0.98rem;
+}
+
+.metric-top strong{
+  font-weight: 800; /* metric value bold */
+}
+
+.metric-sub{
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
 
 
 @media (min-width: 900px) {
