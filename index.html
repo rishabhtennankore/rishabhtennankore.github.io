@@ -205,7 +205,7 @@
         </div> <!-- end .container -->
       </section> <!-- end #about -->
 
-      <!-- Resume section (NOW it’s full width relative to main content) -->
+      <!-- Resume section -->
       <section id="resume" class="section resume resume-full">
         <div class="section-head">
           <h2 class="section-title accent-underline">Resume</h2>
@@ -218,8 +218,8 @@
               <h3 class="resume-h">Professional Summary</h3>
               <ul class="resume-bullets">
                 <li>Materials Scientist with deep expertise in polymer science and characterization for structure–property analysis and failure investigations</li>
-               <li> Proven track record driving end-to-end R&D programs across early-stage startups and large organizations, from material selection and DOE to process optimization and performance validation</li>
-            <li>	Experienced technical consultant and communicator, with demonstrated leadership in cross-functional teams, and ability to convey clear technical directions and conclusions to diverse audiences</li>
+                <li>Proven track record driving end-to-end R&amp;D programs across early-stage startups and large organizations, from material selection and DOE to process optimization and performance validation</li>
+                <li>Experienced technical consultant and communicator, with demonstrated leadership in cross-functional teams, and ability to convey clear technical directions and conclusions to diverse audiences</li>
               </ul>
             </div>
 
@@ -231,18 +231,18 @@
                 <div class="resume-date">Aug 2020 – Aug 2025</div>
                 <div class="resume-subsub">Ph.D., Materials Science &amp; Engineering</div>
                 <div class="resume-text">
-                  Advisor: <em> Prof. Ryan Hayward </em>
-                  <br> Thesis: <em>Bioinspired Fluid-Based Actuation Strategies for Soft Robotics</em> </br>
+                  Advisor: <em>Prof. Ryan Hayward</em><br />
+                  Thesis: <em>Bioinspired Fluid-Based Actuation Strategies for Soft Robotics</em>
                 </div>
               </div>
 
               <div class="resume-item">
                 <div class="resume-subhead">University of Michigan Ann Arbor</div>
                 <div class="resume-date">Sep 2017 – Dec 2018</div>
-                <div class="resume-subsub">M.S., Macromolecular Science &amp; Engineering </div>
+                <div class="resume-subsub">M.S., Macromolecular Science &amp; Engineering</div>
                 <div class="resume-text">
-                  Advisor: <em> Prof. Anish Tuteja </em>
-                  <br> Thesis: <em>Actuatable Membrane Enabled Freeze Concentration</em></br>
+                  Advisor: <em>Prof. Anish Tuteja</em><br />
+                  Thesis: <em>Actuatable Membrane Enabled Freeze Concentration</em>
                 </div>
               </div>
             </div>
@@ -295,8 +295,87 @@
         </div>
 
         <div class="resume-cta">
-          <a class="btn btn-primary" href="assets/resume.docx" target="_blank" rel="noopener">
+          <!-- IMPORTANT: Make sure this file exists at /assets/Resume.pdf (case-sensitive on GitHub Pages). -->
+          <a class="btn btn-primary" href="./assets/Rishabh_S_Resume.pdf" target="_blank" rel="noopener">
             Download Resume (PDF)
           </a>
         </div>
       </section>
+
+      <!-- Portfolio placeholder (so nav doesn't break) -->
+      <section id="portfolio" class="section portfolio">
+        <header class="section-header">
+          <h2 class="section-title accent-underline">Portfolio</h2>
+          <p class="section-subtitle">Selected projects and case studies coming soon.</p>
+        </header>
+      </section>
+
+      <!-- Contact placeholder (so nav doesn't break) -->
+      <section id="contact" class="section contact">
+        <header class="section-header">
+          <h2 class="section-title accent-underline">Contact</h2>
+          <p class="section-subtitle">
+            Best way to reach me is via
+            <a href="https://www.linkedin.com/in/rishabh-tennankore/" target="_blank" rel="noreferrer">LinkedIn</a>.
+          </p>
+        </header>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Dynamic typewriter script for hero section -->
+  <script>
+    // Typewriter phrases (edit these)
+    const phrases = [
+      "a Materials Scientist.",
+      "a CAD Builder.",
+      "a Technical Consultant.",
+      "a Cooking Nerd."
+    ];
+
+    const el = document.getElementById("typewriter");
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const typeSpeed = 55;      // typing speed (ms)
+    const deleteSpeed = 35;    // deleting speed (ms)
+    const holdTime = 1100;     // pause at full phrase (ms)
+    const nextDelay = 250;     // pause before typing next (ms)
+
+    function tick() {
+      const current = phrases[phraseIndex];
+
+      if (!deleting) {
+        charIndex++;
+        el.textContent = current.slice(0, charIndex);
+
+        if (charIndex >= current.length) {
+          setTimeout(() => { deleting = true; tick(); }, holdTime);
+          return;
+        }
+
+        setTimeout(tick, typeSpeed);
+      } else {
+        charIndex--;
+        el.textContent = current.slice(0, charIndex);
+
+        if (charIndex <= 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(tick, nextDelay);
+          return;
+        }
+
+        setTimeout(tick, deleteSpeed);
+      }
+    }
+
+    // Start
+    tick();
+  </script>
+
+</body>
+</html>
