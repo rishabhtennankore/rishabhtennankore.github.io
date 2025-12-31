@@ -283,6 +283,14 @@ h2 { margin-top: 0; }
   display: block;
 }
 
+.highlight > dt {
+  font-size: 1.15rem;        /* larger than body, smaller than section title */
+  font-weight: 700;
+  letter-spacing: 0.08em;   /* key for clean all-caps look */
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
 .edu-block {
   display: block;
 }
