@@ -278,14 +278,42 @@
 
       <!-- CONTACT -->
       <section id="contact" class="section contact">
-        <header class="section-header">
-          <h2 class="section-title accent-underline">Contact</h2>
-          <p class="section-subtitle">
-            Best way to reach me is via
-            <a href="https://www.linkedin.com/in/rishabh-tennankore/" target="_blank" rel="noreferrer">LinkedIn</a>.
-          </p>
-        </header>
-      </section>
+  <header class="section-header">
+    <h2 class="section-title accent-underline">Contact</h2>
+    <p class="section-subtitle">
+      Reach out for consulting inquiries, collaboration, or general questions.
+    </p>
+  </header>
+
+  <form class="contact-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="jane@email.com" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Consulting inquiry">
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Tell me a bit about what you’re working on..." required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      Send Message
+    </button>
+  </form>
+</section>
+
 
     </main>
   </div>
