@@ -5,12 +5,20 @@
 
 :root {
   --accent-blue: #4da3ff;
+  --accent: var(--accent-blue);
+
+  --text: #111;
+  --muted: rgba(17,17,17,0.72);
+
+  --card: #ffffff;
 }
 
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.5;
+  color: var(--text);
+  background: #fff;
 }
 
 /* =========================
@@ -103,7 +111,7 @@ body {
 }
 
 .nav a i {
-  width: 20px;       /* aligns icons vertically */
+  width: 20px;
   text-align: center;
   font-size: 1.15rem;
   transition: color 0.15s ease;
@@ -124,8 +132,8 @@ body {
 ========================= */
 .content {
   flex: 1;
-  padding: 0;      /* important: removes white frame */
-  max-width: none; /* important: no 900px constraint */
+  padding: 0;
+  max-width: none;
   min-width: 0;
 }
 
@@ -143,7 +151,7 @@ body {
     url("assets/cover.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 20% 65%; /* shift DOWN to include arms */
+  background-position: 20% 65%;
 
   display: flex;
   align-items: center;
@@ -151,12 +159,7 @@ body {
 
 .hero__inner {
   padding: 64px;
-  max-width: 640px; /* give name room */
-}
-
-
-.hero__role {
- 
+  max-width: 640px;
 }
 
 .hero__name {
@@ -164,7 +167,7 @@ body {
   white-space: nowrap;
   font-size: clamp(2.4rem, 3.2vw, 3.2rem);
   font-weight: 700;
-  color: #f2f2f2;                 /* off-white, not pure white */
+  color: #f2f2f2;
   text-shadow: 0 2px 12px rgba(0,0,0,0.55);
 }
 
@@ -176,13 +179,12 @@ body {
 }
 
 .hero__dynamic {
-  font-size: clamp(1.6rem, 2.1vw, 2.0rem); /* larger than role line */
+  font-size: clamp(1.6rem, 2.1vw, 2.0rem);
   font-weight: 600;
   color: #9ecbff;
   text-shadow: 0 2px 10px rgba(0,0,0,0.45);
   transition: color 0.3s ease;
 }
-
 
 .cursor {
   display: inline-block;
@@ -204,16 +206,9 @@ body {
 
 h2 { margin-top: 0; }
 
-/* card blocks */
-.card {
-  border: 1px solid #eee;
-  border-radius: 16px;
-  padding: 16px;
-  margin: 14px 0;
-}
-
-/* About section */
-
+/* =========================
+   About section
+========================= */
 .section-header {
   max-width: none;
   margin: 0 0 24px;
@@ -226,14 +221,14 @@ h2 { margin-top: 0; }
   letter-spacing: -0.02em;
 }
 
-/* Accent underline (robust) */
-.accent-underline{
+/* Accent underline */
+.accent-underline {
   display: inline-block;
   position: relative;
   padding-bottom: 10px;
 }
 
-.accent-underline::after{
+.accent-underline::after {
   content: "";
   position: absolute;
   left: 0;
@@ -241,7 +236,7 @@ h2 { margin-top: 0; }
   width: 56px;
   height: 4px;
   border-radius: 999px;
-  background: var(--accent, #7c5cff); /* fallback if --accent isn't defined */
+  background: var(--accent-blue);
 }
 
 .section-subtitle {
@@ -258,20 +253,61 @@ h2 { margin-top: 0; }
   margin-top: 16px;
 }
 
-.edu-list-lines a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
+@media (min-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr 1.4fr;
+    gap: 22px;
+    align-items: start;
+  }
 }
 
-/* highlights section */
+/* About cards (used for headshot + right content) */
+.about-card {
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.about-headshot {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* =========================
+   Highlights box
+========================= */
+.highlight {
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.highlight > dt {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.highlight dd {
+  margin: 0;
+}
+
+/* Two-column layout inside highlights */
 .highlights-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
 }
 
-/* Two columns on desktop */
 @media (min-width: 900px) {
   .highlights-grid {
     grid-template-columns: 1.2fr 0.8fr;
@@ -279,37 +315,20 @@ h2 { margin-top: 0; }
   }
 }
 
-.highlights-col {
-  display: block;
-}
-
-.highlight > dt {
-  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;   /* key for clean all-caps look */
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.edu-block {
-  display: block;
-}
-
-/* Bullets only for top-level headings */
+/* Bullets only for headings */
 .edu-headings {
   list-style: disc;
   padding-left: 18px;
   margin: 0;
   display: grid;
-  gap: 22px; /* increased spacing between headers */
+  gap: 22px;
 }
-
 
 .edu-headings > li {
   line-height: 1.5;
 }
 
-/* Subcontent: no bullets, no indentation */
+/* Subcontent: no bullets, flush left (inside same li) */
 .edu-lines {
   margin-top: 10px;
   display: grid;
@@ -323,156 +342,82 @@ h2 { margin-top: 0; }
 
 .edu-lines a:hover {
   color: var(--accent-blue);
+  opacity: 0.9;
 }
 
-/* color the hyperlink text accent blue */
-.edu-list-lines a {
-  color: var(--accent-blue);
-  text-decoration: none;
-}
-
-.edu-list-lines a:hover {
-  color: var(--accent-blue);
-}
-
-/* Sentence text */
+/* =========================
+   CTA line (only Resume/Portfolio blue)
+========================= */
 .about-cta {
-  margin-top: 24px;
+  margin-top: 18px;
   font-size: 0.95rem;
   color: var(--muted);
 }
 
-/* Only Resume / Portfolio links are blue */
-.about-cta .cta-link,
-.about-cta .cta-link i {
+.about-cta .cta-link {
   color: var(--accent-blue);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Keep them blue on hover */
+.about-cta .cta-link i {
+  color: var(--accent-blue);
+}
+
 .about-cta .cta-link:hover,
 .about-cta .cta-link:hover i {
   color: var(--accent-blue);
   opacity: 0.9;
 }
 
-.metrics-row{
+/* =========================
+   Metrics row (OUTSIDE highlights box)
+========================= */
+.metrics-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 22px;
+  gap: 28px;
   margin-top: 18px;
   padding-top: 14px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 
-.metric-item{
+.metric-item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  min-width: 170px;
+  gap: 12px;
+  min-width: 190px;
 }
 
-.metric-item i{
+.metric-item i {
   color: var(--accent-blue);
-  font-size: 1.35rem; /* larger icon */
+  font-size: 1.55rem; /* larger icon */
   line-height: 1;
   margin-top: 2px;
   flex: 0 0 auto;
 }
 
-.metric-text{
+.metric-text {
   display: grid;
   gap: 2px;
 }
 
-.metric-top{
+.metric-top {
   color: var(--text);
-  font-size: 0.98rem;
+  font-size: 1rem;
 }
 
-.metric-top strong{
-  font-weight: 800; /* metric value bold */
+.metric-top strong {
+  font-weight: 800; /* metric bold */
 }
 
-.metric-sub{
+.metric-sub {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.2;
-}
-
-
-@media (min-width: 900px) {
-  .about-grid {
-    grid-template-columns: 1fr 1.4fr;
-    gap: 22px;
-    align-items: start;
-  }
-}
-
-.about-card {
-  background: var(--card);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-
-.about-headshot {
-  width: 100%;
-  aspect-ratio: 1 / 1;      /* square */
-  object-fit: cover;
-  border-radius: 14px;      /* soft square, not circle */
-  display: block;
-  border: 1px solid rgba(255,255,255,0.10);
-}
-
-.about-kicker {
-  margin: 2px 0 12px;
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.highlights {
-  margin: 0;
-  display: grid;
-  gap: 12px;
-}
-
-.highlight {
-  padding: 12px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.highlight dt {
-  font-weight: 650;
-  margin: 0 0 6px;
-}
-
-.highlight dd {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.about-cta {
-  margin: 14px 0 0;
-  color: var(--muted);
-}
-
-.about-cta a {
-  color: var(--text);
-  text-decoration: none;
-  border-bottom: 2px solid rgba(255,255,255,0.18);
-  padding-bottom: 1px;
-}
-
-.about-cta a:hover {
-  border-bottom-color: var(--accent);
 }
 
 /* =========================
@@ -488,7 +433,6 @@ h2 { margin-top: 0; }
     border-bottom: 1px solid #1d1d1d;
   }
 
-  /* hero: shorter + different overlay direction */
   .hero {
     min-height: 60vh;
     background-image:
@@ -501,12 +445,10 @@ h2 { margin-top: 0; }
     padding: 36px 24px;
   }
 
-  /* allow wrapping on small screens */
   .hero__name {
     white-space: normal;
   }
 
-  /* content padding for non-hero sections on mobile */
   .content section:not(.hero) {
     padding: 24px 18px;
   }
