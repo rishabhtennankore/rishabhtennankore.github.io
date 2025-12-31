@@ -226,10 +226,11 @@ h2 { margin-top: 0; }
   letter-spacing: -0.02em;
 }
 
-.accent-underline {
+/* Accent underline (robust) */
+.accent-underline{
   display: inline-block;
   position: relative;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
 }
 
 .accent-underline::after {
