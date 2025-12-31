@@ -377,11 +377,13 @@ h2 { margin-top: 0; }
    Metrics row (OUTSIDE highlights box)
 ========================= */
 .metrics-row {
+  grid-column: 1 / -1;                 /* span both About columns */
   display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
-  margin-top: 18px;
-  padding-top: 14px;
+  justify-content: space-between;      /* spread across full width */
+  align-items: flex-start;
+  gap: 24px;                           /* safety gap on smaller screens */
+  margin-top: 22px;
+  padding-top: 16px;
   border-top: 1px solid rgba(0,0,0,0.08);
 }
 
@@ -389,8 +391,10 @@ h2 { margin-top: 0; }
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  min-width: 190px;
+  flex: 1;                             /* each metric takes equal width */
+  min-width: 0;
 }
+
 
 .metric-item i {
   color: var(--accent-blue);
