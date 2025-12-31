@@ -264,9 +264,17 @@ h2 { margin-top: 0; }
   font-weight: 500;
 }
 
-.edu-list-lines a:hover {
-  opacity: 0.85;
+/* highlights section */
+.edu-list-lines a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
 }
+
+.edu-list-lines a:hover {
+  color: var(--text);
+}
+
 
 
 @media (min-width: 900px) {
