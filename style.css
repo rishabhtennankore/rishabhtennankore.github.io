@@ -265,6 +265,40 @@ h2 { margin-top: 0; }
 }
 
 /* highlights section */
+.edu-block {
+  display: block;
+}
+
+/* Bullets only for top-level headings */
+.edu-headings {
+  list-style: disc;
+  padding-left: 18px; /* controls bullet position */
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.edu-headings > li {
+  line-height: 1.5;
+}
+
+/* Subcontent: no bullets, no indentation */
+.edu-lines {
+  margin-top: 6px;
+  display: grid;
+  gap: 6px;
+}
+
+.edu-lines a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.edu-lines a:hover {
+  color: var(--accent-blue);
+}
+
+/* color the hyperlink text accent blue */
 .edu-list-lines a {
   color: var(--accent-blue);
   text-decoration: none;
