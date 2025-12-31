@@ -335,6 +335,27 @@ h2 { margin-top: 0; }
   color: var(--accent-blue);
 }
 
+/* Sentence text */
+.about-cta {
+  margin-top: 24px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Only Resume / Portfolio links are blue */
+.about-cta .cta-link,
+.about-cta .cta-link i {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Keep them blue on hover */
+.about-cta .cta-link:hover,
+.about-cta .cta-link:hover i {
+  color: var(--accent-blue);
+  opacity: 0.9;
+}
 
 
 
