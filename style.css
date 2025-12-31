@@ -400,6 +400,11 @@ h2 { margin-top: 0; }
   flex: 0 0 auto;
 }
 
+/* Make metrics span across both columns of the About grid */
+.metrics-full {
+  grid-column: 1 / -1;
+}
+
 .metric-text {
   display: grid;
   gap: 2px;
