@@ -12,9 +12,8 @@
 
   --card: #ffffff;
 
-  /* Shared sizing so section headers match consistently */
+  /* Shared sizing */
   --section-title-size: clamp(1.6rem, 2.2vw, 2.1rem);
-  /* Matches your Highlights title feel */
   --highlight-title-size: 1.05rem;
 
   /* Accent background used for date pills */
@@ -215,7 +214,7 @@ body {
 h2 { margin-top: 0; }
 
 /* =========================
-   About section
+   Generic section header
 ========================= */
 .section-header {
   max-width: none;
@@ -227,6 +226,13 @@ h2 { margin-top: 0; }
   margin: 0 0 10px;
   font-size: var(--section-title-size);
   letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 /* Accent underline */
@@ -247,13 +253,9 @@ h2 { margin-top: 0; }
   background: var(--accent-blue);
 }
 
-.section-subtitle {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
+/* =========================
+   About section
+========================= */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -382,14 +384,14 @@ h2 { margin-top: 0; }
 }
 
 /* =========================
-   Metrics row (OUTSIDE highlights box)
+   Metrics row
 ========================= */
 .metrics-row {
-  grid-column: 1 / -1;                 /* span both About columns */
+  grid-column: 1 / -1;
   display: flex;
-  justify-content: space-between;      /* spread across full width */
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 24px;                           /* safety gap on smaller screens */
+  gap: 24px;
   margin-top: 22px;
   padding-top: 16px;
   border-top: 1px solid rgba(0,0,0,0.08);
@@ -399,19 +401,18 @@ h2 { margin-top: 0; }
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  flex: 1;                             /* each metric takes equal width */
+  flex: 1;
   min-width: 0;
 }
 
 .metric-item i {
   color: var(--accent-blue);
-  font-size: 1.55rem; /* larger icon */
+  font-size: 1.55rem;
   line-height: 1;
   margin-top: 2px;
   flex: 0 0 auto;
 }
 
-/* Make metrics span across both columns of the About grid */
 .metrics-full {
   grid-column: 1 / -1;
 }
@@ -427,7 +428,7 @@ h2 { margin-top: 0; }
 }
 
 .metric-top strong {
-  font-weight: 800; /* metric bold */
+  font-weight: 800;
 }
 
 .metric-sub {
@@ -437,83 +438,56 @@ h2 { margin-top: 0; }
 }
 
 /* =========================
-   Resume section (FULL WIDTH + FLUSH LEFT)
+   Resume section (wide + flush-left)
 ========================= */
-/* Optional: give resume a bit more air at top */
 .section.resume{
   padding-top: 3.5rem;
 }
 
-/* Make resume inner content wider than About, but aligned */
+/* Ensure resume wrappers do not add extra indent.
+   The section padding (40px 50px) defines the left edge. */
 .resume-full .section-head,
 .resume-full .resume-grid,
 .resume-full .resume-cta{
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-/* If you did NOT add resume-full class in HTML, this still prevents the 1100px constraint */
-.section.resume .section-head,
-.section.resume .resume-grid,
-.section.resume .resume-cta{
-  max-width: 1400px;
+/* Section head: flush left */
+.section.resume .section-head{
+  padding: 0;
+  margin: 0 0 1.25rem 0;
 }
 
-/* Section head should not add extra left indentation */
-.section-head{
-  margin: 0 0 1.25rem;
-  padding: 0; /* IMPORTANT: flush-left */
-}
-
-/* Ensure section title uses the same sizing */
-.section.resume .section-title{
-  font-size: var(--section-title-size);
-  line-height: 1.15;
-  margin: 0 0 .35rem;
-}
-
-/* Subtitle stays available (if you keep it), but not required */
-.section.resume .section-subtitle{
-  margin: 0;
-  color: var(--muted);
-  max-width: 70ch;
-}
-
-/* Resume grid: full width within max-width */
-.resume-grid{
-  margin: 1.0rem 0 0;  /* IMPORTANT: no auto-centering padding */
-  padding: 0;          /* IMPORTANT: flush-left */
+/* Grid: full width within 1400px */
+.section.resume .resume-grid{
+  margin: 1rem 0 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr 18px 1.35fr;
   gap: 0;
   align-items: start;
 }
 
-/* Remove internal horizontal padding that causes indentation */
-.resume-col{
+/* Columns: remove left/right padding that caused indent */
+.section.resume .resume-col{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
   padding-left: 0;
   padding-right: 0;
 }
 
-.resume-left{
-  padding-right: 1.5rem; /* keep gutter next to divider */
-}
-
-.resume-right{
-  padding-left: 1.5rem;  /* keep gutter next to divider */
-}
+.section.resume .resume-left{ padding-right: 1.5rem; }
+.section.resume .resume-right{ padding-left: 1.5rem; }
 
 /* Divider */
-.resume-divider{
+.section.resume .resume-divider{
   width: 2px;
   height: 100%;
   margin: 0 auto;
-
   background: linear-gradient(
     to bottom,
     rgba(77,163,255,0),
@@ -525,19 +499,19 @@ h2 { margin-top: 0; }
 }
 
 /* Blocks inside columns */
-.resume-block + .resume-block{
+.section.resume .resume-block + .resume-block{
   margin-top: 1.6rem;
 }
 
-.resume-h{
-  font-size: var(--section-title-size); /* match About Me size */
+.section.resume .resume-h{
+  font-size: var(--section-title-size);
   font-weight: 800;
   margin: 0 0 .85rem;
   letter-spacing: -0.01em;
 }
 
-/* Subheaders (uni/company) same size as resume-h but NOT bold */
-.resume-subhead{
+/* Subheaders same size as resume-h but NOT bold */
+.section.resume .resume-subhead{
   font-size: var(--section-title-size);
   font-weight: 400;
   margin: 0;
@@ -545,7 +519,7 @@ h2 { margin-top: 0; }
 }
 
 /* Dates: accent pill */
-.resume-date{
+.section.resume .resume-date{
   display: inline-block;
   margin-top: .35rem;
   padding: .28rem .55rem;
@@ -560,28 +534,28 @@ h2 { margin-top: 0; }
 }
 
 /* Program / degree */
-.resume-subsub{
+.section.resume .resume-subsub{
   margin-top: .6rem;
   font-size: var(--highlight-title-size);
   font-weight: 800;
 }
 
 /* Normal body */
-.resume-text{
+.section.resume .resume-text{
   margin-top: .35rem;
   color: var(--muted);
   line-height: 1.6;
 }
 
 /* Resume items spacing */
-.resume-item + .resume-item{
+.section.resume .resume-item + .resume-item{
   margin-top: 1.3rem;
   padding-top: 1.1rem;
   border-top: 1px solid rgba(15, 23, 42, .10);
 }
 
 /* Bullets spacing */
-.resume-bullets{
+.section.resume .resume-bullets{
   margin: .75rem 0 0;
   padding-left: 1.2rem;
   display: grid;
@@ -590,18 +564,18 @@ h2 { margin-top: 0; }
   line-height: 1.55;
 }
 
-.resume-bullets li{
+.section.resume .resume-bullets li{
   margin: 0;
 }
 
 /* Skills tags */
-.skills-wrap{
+.section.resume .skills-wrap{
   display: flex;
   flex-wrap: wrap;
   gap: .55rem;
 }
 
-.skill{
+.section.resume .skill{
   display: inline-flex;
   align-items: center;
   padding: .38rem .6rem;
@@ -613,7 +587,7 @@ h2 { margin-top: 0; }
 }
 
 /* CTA */
-.resume-cta{
+.section.resume .resume-cta{
   margin: 1.25rem 0 0;
   padding: 0;
   display: flex;
@@ -638,18 +612,19 @@ h2 { margin-top: 0; }
   color: var(--text);
 }
 
-/* Responsive: stack columns nicely */
+/* Resume responsive */
 @media (max-width: 900px){
-  .resume-grid{
+  .section.resume .resume-grid{
     grid-template-columns: 1fr;
   }
-  .resume-divider{
+  .section.resume .resume-divider{
     display: none;
   }
-  .resume-col{
+  .section.resume .resume-col{
     padding: 1.1rem 0;
   }
-  .resume-left, .resume-right{
+  .section.resume .resume-left,
+  .section.resume .resume-right{
     padding-left: 0;
     padding-right: 0;
   }
