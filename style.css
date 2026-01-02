@@ -574,72 +574,163 @@ h2 { margin-top: 0; }
     </div>
   </div>
 
-/* portfolio section */
+/* =========================
+   Portfolio Section
+========================= */
 
-  <div class="portfolio-grid" id="portfolioGrid">
+.portfolio-filters-wrap{
+  display: flex;
+  justify-content: center;
+  margin: 22px 0 28px;
+}
 
-    <!-- Tile 1 -->
-    <article class="project-card" data-tags="research">
-      <a class="project-thumb" href="/portfolio/phd-project-1.html">
-        <img src="/assets/thumbs/phd1.jpg" alt="Photo-osmotic soft actuator">
-        <div class="project-overlay">
-          <div class="project-title">Photo-osmotic Soft Actuator</div>
-          <div class="project-meta">Research • Polymer transport • Modeling</div>
-          <div class="project-link">
-            <span>View project</span>
-            <span class="link-icon">↗</span>
-          </div>
-        </div>
-      </a>
-    </article>
+.portfolio-filters{
+  display: flex;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.08);
+}
 
-    <!-- Tile 2 -->
-    <article class="project-card" data-tags="industry cad">
-      <a class="project-thumb" href="/portfolio/osmopure-membrane.html">
-        <img src="/assets/thumbs/osmopure.jpg" alt="Osmopure membrane R&amp;D">
-        <div class="project-overlay">
-          <div class="project-title">Membrane R&amp;D Program</div>
-          <div class="project-meta">Industry • DOE • Performance benchmarking</div>
-          <div class="project-link">
-            <span>View project</span>
-            <span class="link-icon">↗</span>
-          </div>
-        </div>
-      </a>
-    </article>
+.filter-btn{
+  border: none;
+  background: transparent;
+  color: #111;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
 
-    <!-- Tile 3 -->
-    <article class="project-card" data-tags="cad research">
-      <a class="project-thumb" href="/portfolio/cad-fixtures.html">
-        <img src="/assets/thumbs/fixtures.jpg" alt="CAD test fixtures">
-        <div class="project-overlay">
-          <div class="project-title">Custom Test Fixtures</div>
-          <div class="project-meta">CAD &amp; Fabrication • Lab tooling</div>
-          <div class="project-link">
-            <span>View project</span>
-            <span class="link-icon">↗</span>
-          </div>
-        </div>
-      </a>
-    </article>
+.filter-btn:hover{
+  background: rgba(0,0,0,0.06);
+}
 
-    <!-- Tile 4 -->
-    <article class="project-card" data-tags="cad">
-      <a class="project-thumb" href="/portfolio/motorcycle-tail-tidy.html">
-        <img src="/assets/thumbs/moto.jpg" alt="Motorcycle tail tidy CAD">
-        <div class="project-overlay">
-          <div class="project-title">Motorcycle Tail Tidy</div>
-          <div class="project-meta">CAD &amp; Fabrication • Personal project</div>
-          <div class="project-link">
-            <span>View project</span>
-            <span class="link-icon">↗</span>
-          </div>
-        </div>
-      </a>
-    </article>
+.filter-btn.is-active{
+  background: var(--accent);
+  color: #fff;
+}
 
-  </div>
-</section>
+/* =========================
+   Portfolio Grid
+========================= */
+
+.portfolio-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 1100px){
+  .portfolio-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px){
+  .portfolio-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Portfolio Tiles
+========================= */
+
+.project-card{
+  display: block;
+}
+
+.project-card.is-hidden{
+  display: none;
+}
+
+.project-thumb{
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 220px;
+  background: #0b0b0b;
+  border: 1px solid rgba(255,255,255,0.10);
+  text-decoration: none;
+}
+
+.project-thumb img{
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.project-overlay{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 6px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.72),
+    rgba(0,0,0,0.10) 55%,
+    rgba(0,0,0,0)
+  );
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.project-title{
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.2px;
+}
+
+.project-meta{
+  font-size: 13px;
+  color: rgba(255,255,255,0.78);
+}
+
+.project-link{
+  margin-top: 6px;
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  font-weight: 650;
+  color: rgba(255,255,255,0.92);
+}
+
+.link-icon{
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(77,163,255,0.18);
+  border: 1px solid rgba(77,163,255,0.35);
+}
+
+/* Hover effects */
+.project-thumb:hover img{
+  opacity: 0.38;
+  transform: scale(1.04);
+}
+
+.project-thumb:hover .project-overlay{
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 /* =========================
