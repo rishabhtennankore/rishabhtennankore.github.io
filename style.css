@@ -789,6 +789,8 @@ object-position: center;
   object-fit: contain;
   object-position: center;
 
+background: #0b0b0b;         /* prevents ugly empty bars */
+
   display: block;
 }
 
