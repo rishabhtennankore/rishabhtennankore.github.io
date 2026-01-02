@@ -653,23 +653,39 @@ h2 { margin-top: 0; }
   bottom: 0;
 
   padding: 14px 16px;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.85),
-    rgba(0,0,0,0.55)
-  );
+  background: rgba(77,163,255,0.92); /* accent blue footer */
+  backdrop-filter: saturate(1.1);
 
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(10px);
   transition: opacity 200ms ease, transform 200ms ease;
 }
 
 
 .project-title{
-  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #ffffff;
+  font-size: 0.95rem;
   font-weight: 800;
-  color: var(--accent);
+  line-height: 1.2;
   letter-spacing: 0.2px;
+}
+
+.project-title-icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+
+  background: rgba(255,255,255,0.18);
+  font-size: 0.85rem;
+  line-height: 1;
 }
 
 .project-meta{
