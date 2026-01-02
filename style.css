@@ -558,30 +558,14 @@ h2 { margin-top: 0; }
   color: var(--text);
 }
 
-<section id="portfolio" class="section">
-  <div class="section-header">
-    <h2>Portfolio</h2>
-    <p class="muted">Selected projects across research, industry, and CAD/fabrication.</p>
-  </div>
-
-  <!-- Centered filter capsule -->
-  <div class="portfolio-filters-wrap">
-    <div class="portfolio-filters">
-      <button class="filter-btn is-active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="research">Research</button>
-      <button class="filter-btn" data-filter="industry">Industry</button>
-      <button class="filter-btn" data-filter="cad">CAD &amp; Fabrication</button>
-    </div>
-  </div>
 
 /* =========================
    Portfolio Section
 ========================= */
 
-
 .portfolio-inner{
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px; /* increase if you want true 4-up with bigger tiles */
   margin: 0 auto;
 }
 
@@ -592,7 +576,6 @@ h2 { margin-top: 0; }
   margin: 22px 0 28px;
 }
 
-
 .portfolio-filters{
   display: flex;
   gap: 10px;
@@ -601,7 +584,6 @@ h2 { margin-top: 0; }
   background: #ffffff;
   box-shadow: 0 8px 26px rgba(0,0,0,0.08);
 }
-
 
 .filter-btn{
   border: none;
@@ -615,41 +597,118 @@ h2 { margin-top: 0; }
   transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
-.filter-btn:hover{
-  background: rgba(0,0,0,0.06);
-}
+.filter-btn:hover{ background: rgba(0,0,0,0.06); }
+.filter-btn.is-active{ background: var(--accent); color: #fff; }
 
-.filter-btn.is-active{
-  background: var(--accent);
-  color: #fff;
-}
-
+/* 4 columns on desktop */
 .portfolio-grid{
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
 }
 
-/* Tablet */
-@media (max-width: 1200px){
-  .portfolio-grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+/* 3 columns */
+@media (max-width: 1400px){
+  .portfolio-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* Small tablet */
-@media (max-width: 900px){
-  .portfolio-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+/* 2 columns */
+@media (max-width: 1000px){
+  .portfolio-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* Mobile */
+/* 1 column */
 @media (max-width: 600px){
-  .portfolio-grid{
-    grid-template-columns: 1fr;
-  }
+  .portfolio-grid{ grid-template-columns: 1fr; }
 }
+
+/* Tiles */
+.project-card{ display: block; }
+.project-card.is-hidden{ display: none; }
+
+.project-thumb{
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 220px;
+  background: #0b0b0b;
+  border: 1px solid rgba(255,255,255,0.10);
+  text-decoration: none;
+}
+
+.project-thumb img{
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.project-overlay{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 6px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.72),
+    rgba(0,0,0,0.10) 55%,
+    rgba(0,0,0,0)
+  );
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.project-title{
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.2px;
+}
+
+.project-meta{
+  font-size: 13px;
+  color: rgba(255,255,255,0.78);
+}
+
+.project-link{
+  margin-top: 6px;
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  font-weight: 650;
+  color: rgba(255,255,255,0.92);
+}
+
+.link-icon{
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(77,163,255,0.18);
+  border: 1px solid rgba(77,163,255,0.35);
+}
+
+.project-thumb:hover img{
+  opacity: 0.38;
+  transform: scale(1.04);
+}
+
+.project-thumb:hover .project-overlay{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* =========================
    Portfolio Tiles
 ========================= */
@@ -874,50 +933,5 @@ h2 { margin-top: 0; }
   .hero__name { white-space: normal; }
 
   .content section:not(.hero) { padding: 24px 18px; }
-}
-
-/* =========================
-   Portfolio grid hard override
-   (paste at very bottom of style.css)
-========================= */
-
-#portfolio .portfolio-inner{
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#portfolio #portfolioGrid.portfolio-grid{
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 18px !important;
-  align-items: stretch;
-}
-
-#portfolio #portfolioGrid .project-card{
-  width: auto !important;
-  max-width: none !important;
-  grid-column: auto !important;
-}
-
-#portfolio #portfolioGrid .project-thumb{
-  width: 100% !important;
-}
-
-/* Responsive */
-@media (max-width: 1200px){
-  #portfolio #portfolioGrid.portfolio-grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  }
-}
-@media (max-width: 900px){
-  #portfolio #portfolioGrid.portfolio-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-@media (max-width: 600px){
-  #portfolio #portfolioGrid.portfolio-grid{
-    grid-template-columns: 1fr !important;
-  }
 }
 
