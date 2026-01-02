@@ -593,6 +593,13 @@ h2 { margin-top: 0; }
   box-shadow: 0 8px 26px rgba(0,0,0,0.08);
 }
 
+.portfolio-inner{
+  width: 100%;
+  max-width: 1200px;   /* SAME visual width as grid */
+  margin: 0 auto;
+}
+
+
 .filter-btn{
   border: none;
   background: transparent;
