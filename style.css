@@ -578,11 +578,20 @@ h2 { margin-top: 0; }
    Portfolio Section
 ========================= */
 
+
+.portfolio-inner{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .portfolio-filters-wrap{
   display: flex;
   justify-content: center;
+  width: 100%;
   margin: 22px 0 28px;
 }
+
 
 .portfolio-filters{
   display: flex;
@@ -591,12 +600,6 @@ h2 { margin-top: 0; }
   border-radius: 999px;
   background: #ffffff;
   box-shadow: 0 8px 26px rgba(0,0,0,0.08);
-}
-
-.portfolio-inner{
-  width: 100%;
-  max-width: 1200px;   /* SAME visual width as grid */
-  margin: 0 auto;
 }
 
 
