@@ -271,12 +271,84 @@
       </section>
 
       <!-- PORTFOLIO -->
-      <section id="portfolio" class="section portfolio">
-        <header class="section-header">
-          <h2 class="section-title accent-underline">Portfolio</h2>
-          <p class="section-subtitle">Selected projects and case studies coming soon.</p>
-        </header>
-      </section>
+      <section id="portfolio" class="section">
+  <div class="section-header">
+    <h2>Portfolio</h2>
+    <p class="muted">Selected projects across research, industry, and CAD/fabrication.</p>
+  </div>
+
+  <!-- Filters -->
+  <div class="portfolio-filters" role="tablist" aria-label="Portfolio filters">
+    <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+    <button class="filter-btn" data-filter="research" role="tab">Research</button>
+    <button class="filter-btn" data-filter="industry" role="tab">Industry</button>
+    <button class="filter-btn" data-filter="cad" role="tab">CAD & Fabrication</button>
+  </div>
+
+  <!-- Grid -->
+  <div class="portfolio-grid" id="portfolioGrid">
+    <!-- Tile 1 -->
+    <article class="project-card" data-tags="research">
+      <a class="project-thumb" href="/portfolio/phd-project-1.html">
+        <img src="/assets/thumbs/phd1.jpg" alt="PhD Project 1 thumbnail">
+        <div class="project-overlay">
+          <div class="project-title">Photo-osmotic Soft Actuator</div>
+          <div class="project-meta">Research • Polymer transport • Modeling</div>
+          <div class="project-link">
+            <span>View project</span>
+            <span class="link-icon" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- Tile 2 -->
+    <article class="project-card" data-tags="industry cad">
+      <a class="project-thumb" href="/portfolio/osmopure-membrane.html">
+        <img src="/assets/thumbs/osmopure.jpg" alt="Osmopure membrane development thumbnail">
+        <div class="project-overlay">
+          <div class="project-title">Membrane R&D Program (Osmopure)</div>
+          <div class="project-meta">Industry • DOE • Performance benchmarking</div>
+          <div class="project-link">
+            <span>View project</span>
+            <span class="link-icon" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- Tile 3 -->
+    <article class="project-card" data-tags="cad research">
+      <a class="project-thumb" href="/portfolio/phd-project-2.html">
+        <img src="/assets/thumbs/fixtures.jpg" alt="CAD fixtures thumbnail">
+        <div class="project-overlay">
+          <div class="project-title">Custom Test Fixtures (CAD)</div>
+          <div class="project-meta">CAD & Fabrication • Fixtures • Prototyping</div>
+          <div class="project-link">
+            <span>View project</span>
+            <span class="link-icon" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- Tile 4 -->
+    <article class="project-card" data-tags="cad">
+      <a class="project-thumb" href="/portfolio/motorcycle-tail-tidy.html">
+        <img src="/assets/thumbs/moto.jpg" alt="Motorcycle tail tidy thumbnail">
+        <div class="project-overlay">
+          <div class="project-title">Motorcycle Tail Tidy (CAD)</div>
+          <div class="project-meta">CAD & Fabrication • Personal build</div>
+          <div class="project-link">
+            <span>View project</span>
+            <span class="link-icon" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+</section>
+
 
       <!-- CONTACT -->
       <section id="contact" class="section contact">
@@ -329,6 +401,7 @@
 <button id="backToTop" aria-label="Back to top">
   <i class="fas fa-arrow-up"></i>
 </button>
+
 
   <!-- Dynamic typewriter script for hero section -->
   <script>
