@@ -558,130 +558,88 @@ h2 { margin-top: 0; }
   color: var(--text);
 }
 
-/* =========================
-   Portfolio: filters + grid
-========================= */
+<section id="portfolio" class="section">
+  <div class="section-header">
+    <h2>Portfolio</h2>
+    <p class="muted">Selected projects across research, industry, and CAD/fabrication.</p>
+  </div>
 
-.portfolio-filters{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin: 14px 0 18px;
-}
+  <!-- Centered filter capsule -->
+  <div class="portfolio-filters-wrap">
+    <div class="portfolio-filters">
+      <button class="filter-btn is-active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="research">Research</button>
+      <button class="filter-btn" data-filter="industry">Industry</button>
+      <button class="filter-btn" data-filter="cad">CAD &amp; Fabrication</button>
+    </div>
+  </div>
 
-.filter-btn{
-  border:1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.06);
-  color: inherit;
-  padding: 9px 12px;
-  border-radius: 999px;
-  cursor:pointer;
-  font-weight:600;
-  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-}
+/* portfolio section */
 
-.filter-btn:hover{ transform: translateY(-1px); }
-.filter-btn.is-active{
-  border-color: rgba(77,163,255,0.6);
-  background: rgba(77,163,255,0.14);
-}
+  <div class="portfolio-grid" id="portfolioGrid">
 
-.portfolio-grid{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
+    <!-- Tile 1 -->
+    <article class="project-card" data-tags="research">
+      <a class="project-thumb" href="/portfolio/phd-project-1.html">
+        <img src="/assets/thumbs/phd1.jpg" alt="Photo-osmotic soft actuator">
+        <div class="project-overlay">
+          <div class="project-title">Photo-osmotic Soft Actuator</div>
+          <div class="project-meta">Research • Polymer transport • Modeling</div>
+          <div class="project-link">
+            <span>View project</span>
+            <span class="link-icon">↗</span>
+          </div>
+        </div>
+      </a>
+    </article>
 
-@media (max-width: 860px){
-  .portfolio-grid{ grid-template-columns: 1fr; }
-}
+    <!-- Tile 2 -->
+    <article class="project-card" data-tags="industry cad">
+      <a class="project-thumb" href="/portfolio/osmopure-membrane.html">
+        <img src="/assets/thumbs/osmopure.jpg" alt="Osmopure membrane R&amp;D">
+        <div class="project-overlay">
+          <div class="project-title">Membrane R&amp;D Program</div>
+          <div class="project-meta">Industry • DOE • Performance benchmarking</div>
+          <div class="project-link">
+            <span>View project</span>
+            <span class="link-icon">↗</span>
+          </div>
+        </div>
+      </a>
+    </article>
 
-/* =========================
-   Portfolio tile hover
-========================= */
+    <!-- Tile 3 -->
+    <article class="project-card" data-tags="cad research">
+      <a class="project-thumb" href="/portfolio/cad-fixtures.html">
+        <img src="/assets/thumbs/fixtures.jpg" alt="CAD test fixtures">
+        <div class="project-overlay">
+          <div class="project-title">Custom Test Fixtures</div>
+          <div class="project-meta">CAD &amp; Fabrication • Lab tooling</div>
+          <div class="project-link">
+            <span>View project</span>
+            <span class="link-icon">↗</span>
+          </div>
+        </div>
+      </a>
+    </article>
 
-.project-card{ display:block; }
+    <!-- Tile 4 -->
+    <article class="project-card" data-tags="cad">
+      <a class="project-thumb" href="/portfolio/motorcycle-tail-tidy.html">
+        <img src="/assets/thumbs/moto.jpg" alt="Motorcycle tail tidy CAD">
+        <div class="project-overlay">
+          <div class="project-title">Motorcycle Tail Tidy</div>
+          <div class="project-meta">CAD &amp; Fabrication • Personal project</div>
+          <div class="project-link">
+            <span>View project</span>
+            <span class="link-icon">↗</span>
+          </div>
+        </div>
+      </a>
+    </article>
 
-.project-thumb{
-  position:relative;
-  display:block;
-  border-radius: 16px;
-  overflow:hidden;
-  background: #0b0b0b;
-  border: 1px solid rgba(255,255,255,0.10);
-  min-height: 240px;
-  text-decoration:none;
-}
-
-.project-thumb img{
-  width:100%;
-  height: 100%;
-  min-height: 240px;
-  object-fit: cover;
-  display:block;
-  transform: scale(1.01);
-  transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.project-overlay{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding: 16px;
-  gap: 6px;
-  background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.08) 55%, rgba(0,0,0,0));
-  opacity:0;
-  transform: translateY(6px);
-  transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.project-title{
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: 0.2px;
-}
-
-.project-meta{
-  font-size: 13px;
-  color: rgba(255,255,255,0.78);
-}
-
-.project-link{
-  margin-top: 6px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding-top: 8px;
-  border-top: 1px solid rgba(255,255,255,0.14);
-  color: rgba(255,255,255,0.92);
-  font-weight: 650;
-}
-
-.link-icon{
-  display:inline-flex;
-  width: 28px;
-  height: 28px;
-  align-items:center;
-  justify-content:center;
-  border-radius: 10px;
-  background: rgba(77,163,255,0.18);
-  border: 1px solid rgba(77,163,255,0.35);
-}
-
-.project-thumb:hover img{
-  opacity: 0.38;       /* translucent on hover */
-  transform: scale(1.04);
-}
-.project-thumb:hover .project-overlay{
-  opacity:1;
-  transform: translateY(0);
-}
-
-/* Hide filtered tiles */
-.project-card.is-hidden{ display:none; }
+  </div>
+</section>
 
 
 /* =========================
