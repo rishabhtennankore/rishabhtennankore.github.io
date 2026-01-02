@@ -648,22 +648,22 @@ h2 { margin-top: 0; }
 
 .project-overlay{
   position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 16px;
-  gap: 6px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 14px 16px;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.72),
-    rgba(0,0,0,0.10) 55%,
-    rgba(0,0,0,0)
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.55)
   );
+
   opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 220ms ease, transform 220ms ease;
+  transform: translateY(8px);
+  transition: opacity 200ms ease, transform 200ms ease;
 }
+
 
 .project-title{
   font-size: 18px;
