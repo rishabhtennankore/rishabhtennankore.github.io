@@ -507,6 +507,21 @@
   })();
 </script>
 
+  <script>
+  const vids = document.querySelectorAll('.project-thumb video');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.play();
+      } else {
+        entry.target.pause();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  vids.forEach(v => observer.observe(v));
+</script>
 
 </body>
 </html>
