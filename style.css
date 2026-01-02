@@ -875,3 +875,49 @@ h2 { margin-top: 0; }
 
   .content section:not(.hero) { padding: 24px 18px; }
 }
+
+/* =========================
+   Portfolio grid hard override
+   (paste at very bottom of style.css)
+========================= */
+
+#portfolio .portfolio-inner{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#portfolio #portfolioGrid.portfolio-grid{
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  align-items: stretch;
+}
+
+#portfolio #portfolioGrid .project-card{
+  width: auto !important;
+  max-width: none !important;
+  grid-column: auto !important;
+}
+
+#portfolio #portfolioGrid .project-thumb{
+  width: 100% !important;
+}
+
+/* Responsive */
+@media (max-width: 1200px){
+  #portfolio #portfolioGrid.portfolio-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 900px){
+  #portfolio #portfolioGrid.portfolio-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 600px){
+  #portfolio #portfolioGrid.portfolio-grid{
+    grid-template-columns: 1fr !important;
+  }
+}
+
