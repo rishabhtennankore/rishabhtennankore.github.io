@@ -758,15 +758,20 @@ h2 { margin-top: 0; }
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 220ms ease, transform 220ms ease;
+
+   .project-meta,
+.project-link{
+  display: none;
+}
 }
 
 .project-title{
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 800;
   color: var(--accent);
   letter-spacing: 0.2px;
+  line-height: 1.2;
 }
-
 .project-meta{
   font-size: 13px;
   color: rgba(255,255,255,0.78);
