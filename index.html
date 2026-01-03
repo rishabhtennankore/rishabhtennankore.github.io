@@ -594,39 +594,34 @@
       const video = thumb.querySelector('video.thumb-video');
       if (!video) return;
 
-      // Ensure nothing plays on load
+      // Ensure it never plays on load
       video.pause();
       video.currentTime = 0;
 
-      // Helper: attach src once
       function ensureSrc(){
-        if (video.getAttribute('data-loaded') === '1') return;
-        const src = video.getAttribute('data-src');
+        if (video.dataset.loaded === "1") return;
+        const src = video.dataset.src;
         if (!src) return;
 
-        // Use attribute not property to avoid odd URL rewriting issues
-        video.setAttribute('src', src);
-        video.load();
-        video.setAttribute('data-loaded', '1');
+        video.src = src;      // attach real src
+        video.load();         // begin loading
+        video.dataset.loaded = "1";
       }
 
-      thumb.addEventListener('mouseenter', async () => {
+      thumb.addEventListener('mouseenter', () => {
         ensureSrc();
 
-        // Wait until we can actually play (avoids black “not ready”)
-        const playWhenReady = async () => {
-          try {
-            video.currentTime = 0;
-            await video.play();
-          } catch (e) {
-            // If autoplay policy blocks for any reason, it will fail silently
-          }
+        const playNow = () => {
+          video.currentTime = 0;
+          const p = video.play();
+          if (p && typeof p.catch === "function") p.catch(() => {});
         };
 
+        // Wait until we have at least 1 frame
         if (video.readyState >= 2) {
-          playWhenReady();
+          playNow();
         } else {
-          video.addEventListener('canplay', playWhenReady, { once: true });
+          video.addEventListener('loadeddata', playNow, { once: true });
         }
       });
 
@@ -637,9 +632,6 @@
     });
   });
 </script>
-
-
-
 
 
 </body>
