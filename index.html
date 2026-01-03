@@ -309,10 +309,10 @@
         <a class="project-thumb" href="/portfolio/phd-cad-hardware.html">
     <video
   class="project-video"
-  src="assets/thumbs/phd-cad.mp4"
+  data-src="assets/thumbs/phd-cad.mp4"
   muted
   playsinline
-  preload="metadata"
+  preload="none"
 ></video>
           <div class="project-overlay">
             <div class="project-title">Custom Test Fixtures </div>
@@ -373,10 +373,10 @@
         <a class="project-thumb" href="/portfolio/motorcycle-tail-tidy.html">
           <video
   class="project-video"
-  src="assets/thumbs/tailtidy.mp4"
+  data-src="assets/thumbs/tailtidy.mp4"
   muted
   playsinline
-  preload="metadata"
+  preload="none"
 ></video>
 
           <div class="project-overlay">
@@ -406,10 +406,10 @@
           
     <video
   class="project-video"
-  src="assets/thumbs/nasa_dgn.mp4"
+  data-src="assets/thumbs/nasa_dgn.mp4"
   muted
   playsinline
-  preload="metadata"
+  preload="none"
 ></video>
 
           
@@ -582,44 +582,40 @@
   })();
 </script>
 
-  <script>
-  const vids = document.querySelectorAll('.project-thumb video');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.play();
-      } else {
-        entry.target.pause();
-      }
-    });
-  }, { threshold: 0.3 });
-
-  vids.forEach(v => observer.observe(v));
-</script>
-
- <script>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.project-thumb').forEach(thumb => {
-      const video = thumb.querySelector('video');
+      const video = thumb.querySelector('video.thumb-video');
       if (!video) return;
 
-      /* 🔒 Hard stop on load */
+      // Hard stop on load
       video.pause();
       video.currentTime = 0;
 
-      thumb.addEventListener('mouseenter', () => {
+      thumb.addEventListener('mouseenter', async () => {
+        // Attach src only on hover
+        if (!video.src) {
+          const src = video.getAttribute('data-src');
+          video.src = src;
+          video.load();
+        }
+
         video.currentTime = 0;
-        video.play();
+        try { await video.play(); } catch(e) {}
       });
 
       thumb.addEventListener('mouseleave', () => {
         video.pause();
         video.currentTime = 0;
+
+        // Optional: fully detach so it NEVER resumes or keeps buffering
+        video.removeAttribute('src');
+        video.load();
       });
     });
   });
 </script>
+
 
 
 
