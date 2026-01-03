@@ -594,7 +594,6 @@
       const video = thumb.querySelector('video.thumb-video');
       if (!video) return;
 
-      // Ensure it never plays on load
       video.pause();
       video.currentTime = 0;
 
@@ -603,8 +602,8 @@
         const src = video.dataset.src;
         if (!src) return;
 
-        video.src = src;      // attach real src
-        video.load();         // begin loading
+        video.src = src;
+        video.load();
         video.dataset.loaded = "1";
       }
 
@@ -617,7 +616,6 @@
           if (p && typeof p.catch === "function") p.catch(() => {});
         };
 
-        // Wait until we have at least 1 frame
         if (video.readyState >= 2) {
           playNow();
         } else {
@@ -628,10 +626,12 @@
       thumb.addEventListener('mouseleave', () => {
         video.pause();
         video.currentTime = 0;
+        video.load(); // 👈 restore poster
       });
     });
   });
 </script>
+
 
 
 </body>
