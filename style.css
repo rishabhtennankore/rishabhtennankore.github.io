@@ -648,6 +648,10 @@ h2 { margin-top: 0; }
   transition: opacity 220ms ease, transform 220ms ease;
 }
 
+.project-thumb video::-webkit-media-controls{
+  display: none !important;
+}
+
 /* Hover footer overlay */
 .project-overlay{
   position: absolute;
@@ -700,7 +704,7 @@ h2 { margin-top: 0; }
 /* Hover effects */
 .project-thumb:hover img,
 .project-thumb:hover video{
-  opacity: 0.38;
+  opacity: 1;
   transform: scale(1.04);
 }
 
