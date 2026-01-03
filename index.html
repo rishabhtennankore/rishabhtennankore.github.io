@@ -588,33 +588,50 @@
       const video = thumb.querySelector('video.thumb-video');
       if (!video) return;
 
-      // Hard stop on load
+      // Ensure nothing plays on load
       video.pause();
       video.currentTime = 0;
 
-      thumb.addEventListener('mouseenter', async () => {
-        // Attach src only on hover
-        if (!video.src) {
-          const src = video.getAttribute('data-src');
-          video.src = src;
-          video.load();
-        }
+      // Helper: attach src once
+      function ensureSrc(){
+        if (video.getAttribute('data-loaded') === '1') return;
+        const src = video.getAttribute('data-src');
+        if (!src) return;
 
-        video.currentTime = 0;
-        try { await video.play(); } catch(e) {}
+        // Use attribute not property to avoid odd URL rewriting issues
+        video.setAttribute('src', src);
+        video.load();
+        video.setAttribute('data-loaded', '1');
+      }
+
+      thumb.addEventListener('mouseenter', async () => {
+        ensureSrc();
+
+        // Wait until we can actually play (avoids black “not ready”)
+        const playWhenReady = async () => {
+          try {
+            video.currentTime = 0;
+            await video.play();
+          } catch (e) {
+            // If autoplay policy blocks for any reason, it will fail silently
+          }
+        };
+
+        if (video.readyState >= 2) {
+          playWhenReady();
+        } else {
+          video.addEventListener('canplay', playWhenReady, { once: true });
+        }
       });
 
       thumb.addEventListener('mouseleave', () => {
         video.pause();
         video.currentTime = 0;
-
-        // Optional: fully detach so it NEVER resumes or keeps buffering
-        video.removeAttribute('src');
-        video.load();
       });
     });
   });
 </script>
+
 
 
 
