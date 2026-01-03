@@ -548,6 +548,7 @@
     });
   });
 </script>
+
   
 <script>
   (function () {
@@ -597,22 +598,29 @@
   vids.forEach(v => observer.observe(v));
 </script>
 
-  <script>
-  document.querySelectorAll('.project-thumb').forEach(thumb => {
-    const video = thumb.querySelector('video');
-    if (!video) return;
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.project-thumb').forEach(thumb => {
+      const video = thumb.querySelector('video');
+      if (!video) return;
 
-    thumb.addEventListener('mouseenter', () => {
-      video.currentTime = 0;
-setTimeout(() => video.play(), 120);
-    });
-
-    thumb.addEventListener('mouseleave', () => {
+      /* 🔒 Hard stop on load */
       video.pause();
       video.currentTime = 0;
+
+      thumb.addEventListener('mouseenter', () => {
+        video.currentTime = 0;
+        video.play();
+      });
+
+      thumb.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+      });
     });
   });
 </script>
+
 
 
 </body>
