@@ -565,7 +565,7 @@ h2 { margin-top: 0; }
 
 .portfolio-inner{
   width: 100%;
-  max-width: 1600px; /* increase if you want true 4-up with bigger tiles */
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -600,15 +600,12 @@ h2 { margin-top: 0; }
 .filter-btn:hover{ background: rgba(0,0,0,0.06); }
 .filter-btn.is-active{ background: var(--accent); color: #fff; }
 
+/* Grid */
 .portfolio-grid{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px; /* slightly more breathing room */
-}
-
-/* 3 columns */
-@media (max-width: 1400px){
-  .portfolio-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  gap: 22px;
+  align-items: stretch;
 }
 
 /* 2 columns */
@@ -621,30 +618,37 @@ h2 { margin-top: 0; }
   .portfolio-grid{ grid-template-columns: 1fr; }
 }
 
-/* Tiles */
+/* Cards */
 .project-card{ display: block; }
 .project-card.is-hidden{ display: none; }
 
+/* Tile */
 .project-thumb{
-  position: absolute;
+  position: relative;          /* IMPORTANT: not absolute */
   display: block;
+  width: 100%;
+  min-height: 240px;           /* slightly bigger tiles */
   border-radius: 16px;
   overflow: hidden;
-  min-height: 220px;
   background: #0b0b0b;
   border: 1px solid rgba(255,255,255,0.10);
   text-decoration: none;
 }
 
-.project-thumb img{
+/* Media fill (image + video) */
+.project-thumb img,
+.project-thumb video{
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 220px;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
+  object-position: center;
   transition: opacity 220ms ease, transform 220ms ease;
 }
 
+/* Hover footer overlay */
 .project-overlay{
   position: absolute;
   left: 0;
@@ -652,7 +656,7 @@ h2 { margin-top: 0; }
   bottom: 0;
 
   padding: 14px 16px;
-  background: rgba(77,163,255,0.92); /* accent blue footer */
+  background: rgba(77,163,255,0.92);
   backdrop-filter: saturate(1.1);
 
   opacity: 0;
@@ -660,35 +664,25 @@ h2 { margin-top: 0; }
   transition: opacity 200ms ease, transform 200ms ease;
 }
 
-
+/* Title (white text, FA icon via ::before if you want) */
 .project-title{
   display: inline-flex;
   align-items: center;
   gap: 8px;
 
-  color: #ffffff;
+  color: #fff;
   font-size: 0.95rem;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: 0.2px;
 }
 
-.project-title-icon{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 20px;
-  height: 20px;
-  border-radius: 6px;
-
-  background: rgba(255,255,255,0.18);
-  font-size: 0.85rem;
-  line-height: 1;
-}
-
+/* Font Awesome icon */
 .project-title::before{
-  content: "↗";
+  content: "\f08e";                 /* fa-arrow-up-right-from-square */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -698,153 +692,9 @@ h2 { margin-top: 0; }
   border-radius: 6px;
 
   background: rgba(255,255,255,0.18);
-  font-size: 0.85rem;
+  color: #fff;
+  font-size: 0.75rem;
   line-height: 1;
-}
-
-.project-thumb:hover .project-title::before{
-  transform: translateX(2px);
-  transition: transform 180ms ease;
-}
-
-.project-meta{
-  font-size: 13px;
-  color: rgba(255,255,255,0.78);
-}
-
-.project-link{
-  margin-top: 6px;
-  padding-top: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,0.14);
-  font-weight: 650;
-  color: rgba(255,255,255,0.92);
-}
-
-.link-icon{
-  display: inline-flex;
-  width: 28px;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: rgba(77,163,255,0.18);
-  border: 1px solid rgba(77,163,255,0.35);
-}
-
-.project-thumb:hover img{
-  opacity: 0.38;
-  transform: scale(1.04);
-}
-
-.project-thumb:hover .project-overlay{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =========================
-   Portfolio Tiles
-========================= */
-
-.project-card{
-  display: block;
-}
-
-.project-card.is-hidden{
-  display: none;
-}
-
-.project-thumb{
-  position: relative;
-  overflow: hidden; 
-  display: block;
-  border-radius: 16px;
-  overflow: hidden;
-  min-height: 220px;
-  background: #0b0b0b;
-  border: 1px solid rgba(255,255,255,0.10);
-  text-decoration: none;
-}
-
-.project-thumb img{
-  width: 100%;
-  height: 100%;
-  min-height: 220px;
-  object-fit: cover;
-object-position: center;
-  display: block;
-  transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.project-thumb video{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-
-  object-fit: cover;
-  object-position: center;
-}
-
-.project-overlay{
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 16px;
-  gap: 6px;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.72),
-    rgba(0,0,0,0.10) 55%,
-    rgba(0,0,0,0)
-  );
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 220ms ease, transform 220ms ease;
-
-   .project-meta,
-.project-link{
-  display: none;
-}
-}
-
-.project-title{
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: 0.2px;
-  line-height: 1.2;
-}
-.project-meta{
-  font-size: 13px;
-  color: rgba(255,255,255,0.78);
-}
-
-.project-link{
-  margin-top: 6px;
-  padding-top: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,0.14);
-  font-weight: 650;
-  color: rgba(255,255,255,0.92);
-}
-
-.link-icon{
-  display: inline-flex;
-  width: 28px;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: rgba(77,163,255,0.18);
-  border: 1px solid rgba(77,163,255,0.35);
 }
 
 /* Hover effects */
@@ -852,7 +702,6 @@ object-position: center;
 .project-thumb:hover video{
   opacity: 0.38;
   transform: scale(1.04);
-   transition: opacity 220ms ease, transform 220ms ease;
 }
 
 .project-thumb:hover .project-overlay{
