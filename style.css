@@ -724,6 +724,25 @@ h2 { margin-top: 0; }
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
+.meta-row--pills .meta-pills{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.meta-row--pills .pill{
+  display: inline-flex;
+  padding: 0.28rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, .14);
+  background: rgba(77,163,255,.10);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(15,23,42,.82);
+}
+
+
 .project-meta-box .meta-row:last-child{ border-bottom: none; }
 
 /* label */
@@ -741,108 +760,6 @@ h2 { margin-top: 0; }
   /* key part */
   overflow-wrap: anywhere;   /* wraps long text cleanly */
   word-break: break-word;
-}
-
-
-/* =========================
-   Contact Form
-========================= */
-.contact-form {
-  max-width: 720px;
-  margin-top: 1.5rem;
-  display: grid;
-  gap: 1.2rem;
-}
-
-.form-row {
-  display: grid;
-  gap: 1.2rem;
-}
-
-@media (min-width: 700px) {
-  .form-row {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.form-group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.form-group input,
-.form-group textarea {
-  font-family: inherit;
-  font-size: 0.95rem;
-  padding: 0.6rem 0.7rem;
-  border-radius: 10px;
-  border: 1px solid rgba(15, 23, 42, 0.18);
-  background: #fff;
-  color: var(--text);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: rgba(15, 23, 42, 0.45);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 2px rgba(77,163,255,0.15);
-}
-
-.contact-form button {
-  align-self: flex-start;
-  margin-top: 0.5rem;
-}
-
-/* =========================
-   Back to Top Button
-========================= */
-#backToTop {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(15, 23, 42, 0.15);
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--text);
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  z-index: 1000;
-}
-
-#backToTop i {
-  font-size: 1rem;
-  color: var(--accent-blue);
-}
-
-#backToTop.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-#backToTop:hover {
-  transform: translateY(-3px);
 }
 
 /* =========================
@@ -1047,6 +964,109 @@ h2 { margin-top: 0; }
 .story-step.is-active .story-kicker{
   color: var(--accent-blue);
 }
+
+
+/* =========================
+   Contact Form
+========================= */
+.contact-form {
+  max-width: 720px;
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  gap: 1.2rem;
+}
+
+@media (min-width: 700px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  background: #fff;
+  color: var(--text);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(15, 23, 42, 0.45);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(77,163,255,0.15);
+}
+
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* =========================
+   Back to Top Button
+========================= */
+#backToTop {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 1000;
+}
+
+#backToTop i {
+  font-size: 1rem;
+  color: var(--accent-blue);
+}
+
+#backToTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#backToTop:hover {
+  transform: translateY(-3px);
+}
+
 
 
 /* =========================
