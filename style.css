@@ -923,10 +923,10 @@ h2 { margin-top: 0; }
 .project-card p, .project-card li{ color: rgba(17,17,17,0.78); }
 
 /* =========================
-   Project media carousel (OsmoPure style)
+   OsmoPure Story Carousel + Linked Captions
 ========================= */
 
-.project-media--carousel{
+.project-media--story{
   display: flex;
   gap: 14px;
   overflow-x: auto;
@@ -936,27 +936,86 @@ h2 { margin-top: 0; }
 }
 
 /* each slide snaps cleanly */
-.project-media--carousel .media-slide{
+.project-media--story .media-slide{
   flex: 0 0 auto;
-  width: min(980px, 92vw);   /* big slide */
+  width: min(980px, 92vw);
   scroll-snap-align: start;
 }
 
-/* media box styling (keeps consistent with other pages) */
-.project-media--carousel .media-item{
+/* media frame (same as your other pages) */
+.project-media--story .media-item{
   width: 100%;
-  aspect-ratio: 16 / 9;      /* consistent slideshow aspect */
+  aspect-ratio: 16 / 9;
   border-radius: 16px;
   border: 1px solid rgba(0,0,0,0.08);
   overflow: hidden;
-  background: #000;
+  background: #0b0b0b;
   object-fit: cover;
   display: block;
 }
 
-/* make sure videos behave like images */
-.project-media--carousel video.media-item{
-  object-fit: cover;
+/* small caption under each slide (kept subtle) */
+.project-media--story .media-caption{
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-left: 2px;
+}
+
+/* “What I did” linked list */
+.story-steps{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.story-step{
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.story-link{
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 12px 14px;
+  display: grid;
+  gap: 4px;
+}
+
+.story-kicker{
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(17,17,17,0.55);
+}
+
+.story-title{
+  font-weight: 800;
+  color: var(--text);
+}
+
+.story-text{
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+/* Active step highlight (when corresponding slide is in view) */
+.story-step.is-active{
+  border-color: rgba(77,163,255,.55);
+  box-shadow: 0 10px 24px rgba(77,163,255,0.12);
+}
+
+.story-step.is-active .story-kicker{
+  color: var(--accent-blue);
 }
 
 
