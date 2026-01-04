@@ -713,6 +713,36 @@ h2 { margin-top: 0; }
   transform: translateY(0);
 }
 
+/* Meta rows: consistent spacing + allow long values to wrap nicely */
+.project-meta-box .meta-row{
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* label | value */
+  gap: 12px;
+  align-items: start;
+
+  padding: 10px 6px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.project-meta-box .meta-row:last-child{ border-bottom: none; }
+
+/* label */
+.project-meta-box .meta-row strong{
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* value */
+.project-meta-box .meta-row span{
+  text-align: right;
+  color: rgba(17,17,17,0.78);
+  line-height: 1.25;
+
+  /* key part */
+  overflow-wrap: anywhere;   /* wraps long text cleanly */
+  word-break: break-word;
+}
+
 
 /* =========================
    Contact Form
