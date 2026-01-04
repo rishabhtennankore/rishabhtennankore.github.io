@@ -922,14 +922,41 @@ h2 { margin-top: 0; }
 .project-card h2{ margin-top: 0; }
 .project-card p, .project-card li{ color: rgba(17,17,17,0.78); }
 
-.caption {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* =========================
+   Project media carousel (OsmoPure style)
+========================= */
+
+.project-media--carousel{
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
-.caption.active {
+
+/* each slide snaps cleanly */
+.project-media--carousel .media-slide{
+  flex: 0 0 auto;
+  width: min(980px, 92vw);   /* big slide */
+  scroll-snap-align: start;
+}
+
+/* media box styling (keeps consistent with other pages) */
+.project-media--carousel .media-item{
+  width: 100%;
+  aspect-ratio: 16 / 9;      /* consistent slideshow aspect */
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+  overflow: hidden;
+  background: #000;
+  object-fit: cover;
   display: block;
-  opacity: 1;
+}
+
+/* make sure videos behave like images */
+.project-media--carousel video.media-item{
+  object-fit: cover;
 }
 
 
