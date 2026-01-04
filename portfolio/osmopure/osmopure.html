@@ -3,119 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scalable Manufacturing of Pressure-Distillation Membranes | Rishabh Tennankore</title>
+  <title>OsmoPure Membrane Development | Rishabh Tennankore</title>
   <link rel="stylesheet" href="../style.css?v=6" />
-
-  <!-- Page-local styles: only for the slideshow + linked caption panel -->
-  <style>
-    /* Keep the same top-section placement as your other pages:
-       we just replace the horizontal scroll with a single viewer card. */
-    .project-media.osmo {
-      display: block;
-      padding: 0;
-    }
-
-    .osmo-media-card {
-      background: var(--card, #fff);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-    }
-
-    .osmo-viewer {
-      position: relative;
-      width: 100%;
-      background: #0f0f10;
-      min-height: 360px;
-    }
-
-    .osmo-item {
-      width: 100%;
-      height: 100%;
-      display: none;
-      object-fit: contain;
-      background: #0f0f10;
-    }
-    .osmo-item.active { display: block; }
-
-    .osmo-controls {
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      pointer-events: none;
-    }
-
-    .osmo-btn {
-      pointer-events: auto;
-      appearance: none;
-      border: 0;
-      border-radius: 999px;
-      padding: 10px 12px;
-      background: rgba(255,255,255,0.92);
-      color: #111;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 10px 18px rgba(0,0,0,0.18);
-    }
-    .osmo-btn:active { transform: translateY(1px); }
-
-    .osmo-dots {
-      pointer-events: auto;
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-    }
-    .osmo-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.25);
-      background: rgba(255,255,255,0.55);
-      cursor: pointer;
-    }
-    .osmo-dot.active { background: rgba(255,255,255,0.95); }
-
-    /* Caption panel under viewer (this is Option 1) */
-    .osmo-caption {
-      padding: 14px 16px 16px;
-      border-top: 1px solid rgba(0,0,0,0.08);
-    }
-    .osmo-eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 12px;
-      color: rgba(17,17,17,0.60);
-      margin: 0 0 6px 0;
-    }
-    .osmo-title {
-      margin: 0 0 8px 0;
-      font-size: 18px;
-      line-height: 1.25;
-    }
-    .osmo-text {
-      margin: 0;
-      color: rgba(17,17,17,0.82);
-      line-height: 1.45;
-      transition: opacity 200ms ease;
-      min-height: 3.8em; /* stable layout */
-    }
-    .osmo-credit {
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(17,17,17,0.60);
-    }
-
-    @media (max-width: 720px) {
-      .osmo-viewer { min-height: 260px; }
-      .osmo-text { min-height: unset; }
-    }
-  </style>
 </head>
 
 <body>
@@ -123,55 +12,59 @@
 
     <!-- Title bar -->
     <header class="project-header">
-      <h1 class="project-h1">Scalable Manufacturing of Pressure-Distillation Membranes</h1>
+      <h1 class="project-h1">OsmoPure — Membrane Development</h1>
       <nav class="project-breadcrumb">
         <a href="../index.html#portfolio">Portfolio</a>
         <span class="sep">/</span>
-        <span>Osmopure</span>
+        <span>OsmoPure — Membrane Development</span>
       </nav>
     </header>
 
-    <!-- TOP SECTION: image slideshow (and slide-linked text beneath it) -->
-    <section class="project-media osmo" aria-label="Project media">
-      <div class="osmo-media-card">
-        <div class="osmo-viewer" id="osmoViewer" aria-label="Media viewer">
-          <!-- Replace these src paths with your real assets -->
-          <img class="osmo-item active" data-i="0" src="../assets/Projects/osmopure/01_context.png" alt="System context schematic" loading="lazy" />
-          <img class="osmo-item" data-i="1" src="../assets/Projects/osmopure/02_failure.png" alt="Failure mode schematic" loading="lazy" />
-          <img class="osmo-item" data-i="2" src="../assets/Projects/osmopure/03_coating.png" alt="Coating physics schematic" loading="lazy" />
-          <img class="osmo-item" data-i="3" src="../assets/Projects/osmopure/04_backfill.png" alt="Backfilling schematic" loading="lazy" />
-          <img class="osmo-item" data-i="4" src="../assets/Projects/osmopure/05_architecture.png" alt="Multilayer architecture schematic" loading="lazy" />
-          <img class="osmo-item" data-i="5" src="../assets/Projects/osmopure/06_validation.png" alt="Validation schematic" loading="lazy" />
-          <img class="osmo-item" data-i="6" src="../assets/Projects/osmopure/07_roadmap.png" alt="Roadmap schematic" loading="lazy" />
+    <!-- Slideshow row (horizontal scroll, snap) -->
+    <section class="project-media project-media--carousel" aria-label="Project media">
 
-          <div class="osmo-controls" aria-label="Slideshow controls">
-            <button class="osmo-btn" type="button" id="osmoPrev" aria-label="Previous slide">‹</button>
-            <div class="osmo-dots" id="osmoDots" aria-label="Slide dots"></div>
-            <button class="osmo-btn" type="button" id="osmoNext" aria-label="Next slide">›</button>
-          </div>
-        </div>
-
-        <div class="osmo-caption" aria-label="Slide caption">
-          <p class="osmo-eyebrow" id="osmoEyebrow">SYSTEM CONTEXT</p>
-          <h3 class="osmo-title" id="osmoTitle">Pressure Distillation (Prior Art)</h3>
-          <p class="osmo-text" id="osmoText">
-            Pressure distillation relies on a hydrophobic membrane sustaining an air layer under pressure; premature liquid entry collapses performance.
-          </p>
-          <div class="osmo-credit" id="osmoCredit">
-            Illustrative schematics only; any prior-art images are from public literature for explanatory purposes.
-          </div>
-        </div>
+      <!-- Video slide (loops) -->
+      <div class="media-slide">
+        <video class="media-item"
+               src="../assets/projects/osmopure/01-loop.mp4"
+               autoplay muted loop playsinline
+               controls></video>
       </div>
+
+      <!-- Image slides -->
+      <div class="media-slide">
+        <img class="media-item"
+             src="../assets/projects/osmopure/02.jpg"
+             alt="Membrane coating architecture and test setup"
+             loading="lazy" />
+      </div>
+
+      <div class="media-slide">
+        <img class="media-item"
+             src="../assets/projects/osmopure/03.jpg"
+             alt="Performance benchmarking and key metrics"
+             loading="lazy" />
+      </div>
+
+      <!-- Optional: another video slide -->
+      <div class="media-slide">
+        <video class="media-item"
+               src="../assets/projects/osmopure/04.mp4"
+               autoplay muted loop playsinline
+               controls></video>
+      </div>
+
     </section>
 
-    <!-- BOTTOM SECTION: left sidebar + right content (unchanged layout) -->
+    <!-- Content grid -->
     <section class="project-body">
 
       <aside class="project-sidebar">
         <div class="project-meta-box">
           <div class="meta-row"><strong>Project Date</strong><span>2025</span></div>
           <div class="meta-row"><strong>Category</strong><span>Industry</span></div>
-          <div class="meta-row"><strong>Skills</strong><span>Sol-Gel Processing, Blade Coating, Formulations, DOE, Profilometry, Contact Angles, SEM, Failure Analysis</span></div>
+          <div class="meta-row"><strong>Focus</strong><span>Membranes • DOE • Scale-up</span></div>
+          <div class="meta-row"><strong>Tools</strong><span>SEM • Profilometry • Contact Angle</span></div>
         </div>
       </aside>
 
@@ -179,153 +72,41 @@
         <div class="project-card">
           <h2>Overview</h2>
           <p>
-            Osmopure is developing membranes for pressure-driven purification where a thin hydrophobic top layer must sustain high liquid entry pressures
-            without sacrificing transport. My contribution focused on establishing quantitative coating control, resolving substrate/process failure modes,
-            and developing a multilayer architecture that significantly increased pressure stability and enabled measurable salt rejection.
+            Write your short overview here. Keep it 6–9 lines: context, what you owned, what you built, the outcome.
           </p>
-          <p style="color: rgba(17,17,17,0.72);">
-            <em>Note:</em> This case study is intentionally non-proprietary and focuses on approach, physical reasoning, and validation strategy.
-          </p>
-        </div>
 
-        <div class="project-card">
-          <h2>Key Contributions</h2>
+          <h2>Highlights</h2>
           <ul>
-            <li>Built thickness metrology + coating calibration to connect film thickness to process conditions.</li>
-            <li>Resolved substrate/solvent incompatibility and decoupled coating from gelation via controlled post-cure.</li>
-            <li>Introduced pore backfilling to limit wicking and keep the functional layer surface-localized.</li>
-            <li>Diagnosed heterogeneity-driven global failure under pressure and validated a multilayer architecture to arrest breakthrough.</li>
-            <li>Mapped short-term/long-term failure modes and defined a roadmap for modulus/thickness optimization and cycling tests.</li>
+            <li>Built end-to-end membrane R&amp;D workflow: formulation → coating → test → iteration.</li>
+            <li>DOE-guided optimization and quantitative performance benchmarking.</li>
+            <li>Linked morphology/surface properties to transport performance.</li>
           </ul>
         </div>
       </div>
 
     </section>
+
   </main>
 
+  <!-- Optional: improve carousel “feel” -->
   <script>
-    (function () {
-      const viewer = document.getElementById("osmoViewer");
-      const items = Array.from(viewer.querySelectorAll(".osmo-item"));
-      const dotsWrap = document.getElementById("osmoDots");
-      const prevBtn = document.getElementById("osmoPrev");
-      const nextBtn = document.getElementById("osmoNext");
+    // Pause carousel videos when they’re not visible (optional nice-to-have)
+    (function(){
+      const vids = document.querySelectorAll('.project-media--carousel video');
+      if (!('IntersectionObserver' in window) || vids.length === 0) return;
 
-      const eyebrowEl = document.getElementById("osmoEyebrow");
-      const titleEl = document.getElementById("osmoTitle");
-      const textEl = document.getElementById("osmoText");
-      const creditEl = document.getElementById("osmoCredit");
-
-      const captions = [
-        {
-          eyebrow: "SYSTEM CONTEXT",
-          title: "Pressure Distillation (Prior Art)",
-          text: "Pressure distillation relies on a hydrophobic membrane sustaining an air layer under pressure; premature liquid entry collapses performance.",
-          credit: "If using a screenshot from a paper: crop panel labels and add attribution (e.g., ‘reproduced from prior published work’)."
-        },
-        {
-          eyebrow: "FAILURE MODE",
-          title: "Why Early Coatings Failed",
-          text: "Uncontrolled pore wicking and heterogeneous surface structure can turn a local breakthrough into global failure under pressure.",
-          credit: "Conceptual schematic (not a recipe)."
-        },
-        {
-          eyebrow: "COATING PHYSICS",
-          title: "Thickness Control via Process Calibration",
-          text: "Profilometry-based calibration connected thickness to coating conditions, revealing manufacturability constraints at high viscosities.",
-          credit: "Method-focused, non-proprietary."
-        },
-        {
-          eyebrow: "SELECTIVITY CONTROL",
-          title: "Limit Pore Infiltration",
-          text: "A pore-backfilling strategy reduces partitioning into the substrate so the functional layer remains thin and surface-localized.",
-          credit: "No confidential solvent/formulation details shown."
-        },
-        {
-          eyebrow: "ARCHITECTURE",
-          title: "Multilayer Design to Arrest Global Failure",
-          text: "A compliant, vapor-permeable underlayer can prevent local defects from causing catastrophic global breakthrough while preserving transport.",
-          credit: "Architecture-level concept inspired by multilayer membrane design."
-        },
-        {
-          eyebrow: "VALIDATION",
-          title: "Pressure Stability + Selectivity",
-          text: "The multilayer architecture delivered order-of-magnitude gains in breakthrough pressure and enabled measurable salt rejection.",
-          credit: "No confidential operating conditions, targets, or formulations shown."
-        },
-        {
-          eyebrow: "ROADMAP",
-          title: "Next Constraints & Levers",
-          text: "Pressure-driven deformation/cracking define the next limit; increasing modulus, minimizing layer thickness, and cycling tests were the next levers.",
-          credit: "Forward-looking plan (non-proprietary)."
-        }
-      ];
-
-      let idx = 0;
-
-      function renderDots() {
-        dotsWrap.innerHTML = "";
-        items.forEach((_, i) => {
-          const d = document.createElement("button");
-          d.type = "button";
-          d.className = "osmo-dot" + (i === idx ? " active" : "");
-          d.setAttribute("aria-label", `Go to slide ${i + 1}`);
-          d.addEventListener("click", () => setSlide(i));
-          dotsWrap.appendChild(d);
-        });
-      }
-
-      function setActive(i) {
-        items.forEach((el, j) => {
-          el.classList.toggle("active", j === i);
-          if (el.tagName === "VIDEO") {
-            try { el.pause(); } catch (e) {}
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          const v = e.target;
+          if (!e.isIntersecting) v.pause();
+          else {
+            // resume only if it's supposed to loop/autoplay
+            if (v.hasAttribute('loop')) v.play().catch(()=>{});
           }
         });
-      }
+      }, { threshold: 0.6 });
 
-      function setCaption(i) {
-        const c = captions[i] || captions[0];
-        textEl.style.opacity = "0";
-        window.setTimeout(() => {
-          eyebrowEl.textContent = c.eyebrow;
-          titleEl.textContent = c.title;
-          textEl.textContent = c.text;
-          creditEl.textContent = c.credit;
-          textEl.style.opacity = "1";
-        }, 120);
-      }
-
-      function setSlide(i) {
-        idx = (i + items.length) % items.length;
-        setActive(idx);
-        setCaption(idx);
-        renderDots();
-      }
-
-      prevBtn.addEventListener("click", () => setSlide(idx - 1));
-      nextBtn.addEventListener("click", () => setSlide(idx + 1));
-
-      // Swipe support
-      let startX = null;
-      viewer.addEventListener("touchstart", (e) => {
-        if (!e.touches || e.touches.length !== 1) return;
-        startX = e.touches[0].clientX;
-      }, { passive: true });
-
-      viewer.addEventListener("touchend", (e) => {
-        if (startX == null) return;
-        const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
-        const dx = endX - startX;
-        startX = null;
-        if (Math.abs(dx) < 40) return;
-        if (dx > 0) setSlide(idx - 1);
-        else setSlide(idx + 1);
-      }, { passive: true });
-
-      // Init
-      renderDots();
-      setCaption(0);
+      vids.forEach(v => obs.observe(v));
     })();
   </script>
 </body>
