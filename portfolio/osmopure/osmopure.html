@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OsmoPure Membrane Development | Rishabh Tennankore</title>
+  <title>OsmoPure Membrane R&D Program | Rishabh Tennankore</title>
   <link rel="stylesheet" href="../style.css?v=6" />
 </head>
 
@@ -12,46 +12,49 @@
 
     <!-- Title bar -->
     <header class="project-header">
-      <h1 class="project-h1">OsmoPure — Membrane Development</h1>
+      <h1 class="project-h1">Membrane R&amp;D Program</h1>
       <nav class="project-breadcrumb">
         <a href="../index.html#portfolio">Portfolio</a>
         <span class="sep">/</span>
-        <span>OsmoPure — Membrane Development</span>
+        <span>Membrane R&amp;D Program</span>
       </nav>
     </header>
 
-    <!-- Slideshow row (horizontal scroll, snap) -->
+    <!-- Media row (horizontal scroll slideshow) -->
     <section class="project-media project-media--carousel" aria-label="Project media">
 
-      <!-- Video slide (loops) -->
+      <!-- Slide 1 (image) -->
       <div class="media-slide">
-        <video class="media-item"
-               src="../assets/projects/osmopure/01-loop.mp4"
-               autoplay muted loop playsinline
-               controls></video>
+        <img class="media-item" src="../assets/Projects/osmopure/1.jpg" loading="lazy" alt="OsmoPure membrane program overview" />
       </div>
 
-      <!-- Image slides -->
+      <!-- Slide 2 (video) -->
       <div class="media-slide">
-        <img class="media-item"
-             src="../assets/projects/osmopure/02.jpg"
-             alt="Membrane coating architecture and test setup"
-             loading="lazy" />
+        <video
+          class="media-item"
+          src="../assets/Projects/osmopure/2.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
       </div>
 
+      <!-- Slide 3 (image) -->
       <div class="media-slide">
-        <img class="media-item"
-             src="../assets/projects/osmopure/03.jpg"
-             alt="Performance benchmarking and key metrics"
-             loading="lazy" />
+        <img class="media-item" src="../assets/Projects/osmopure/3.jpg" loading="lazy" alt="Coating morphology / characterization" />
       </div>
 
-      <!-- Optional: another video slide -->
+      <!-- Slide 4 (video) -->
       <div class="media-slide">
-        <video class="media-item"
-               src="../assets/projects/osmopure/04.mp4"
-               autoplay muted loop playsinline
-               controls></video>
+        <video
+          class="media-item"
+          src="../assets/Projects/osmopure/4.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
       </div>
 
     </section>
@@ -63,8 +66,7 @@
         <div class="project-meta-box">
           <div class="meta-row"><strong>Project Date</strong><span>2025</span></div>
           <div class="meta-row"><strong>Category</strong><span>Industry</span></div>
-          <div class="meta-row"><strong>Focus</strong><span>Membranes • DOE • Scale-up</span></div>
-          <div class="meta-row"><strong>Tools</strong><span>SEM • Profilometry • Contact Angle</span></div>
+          <div class="meta-row"><strong>Focus</strong><span>DOE, coatings, benchmarking</span></div>
         </div>
       </aside>
 
@@ -72,42 +74,21 @@
         <div class="project-card">
           <h2>Overview</h2>
           <p>
-            Write your short overview here. Keep it 6–9 lines: context, what you owned, what you built, the outcome.
+            At
+            <a href="https://www.sbir.gov/portfolio/2560559" target="_blank" rel="noopener noreferrer">OsmoPure Technologies</a>,
+            I helped build the membrane R&amp;D program from the ground up—defining test workflows, selecting materials,
+            running DOE-guided iteration, and connecting coating morphology/surface properties to separation performance.
           </p>
 
-          <h2>Highlights</h2>
-          <ul>
-            <li>Built end-to-end membrane R&amp;D workflow: formulation → coating → test → iteration.</li>
-            <li>DOE-guided optimization and quantitative performance benchmarking.</li>
-            <li>Linked morphology/surface properties to transport performance.</li>
-          </ul>
+          <p>
+            The work focused on scalable silicone and sol–gel coating architectures for hydrophobic modification of porous substrates,
+            with rapid feedback from characterization and performance benchmarking to guide design decisions and scale-up priorities.
+          </p>
         </div>
       </div>
 
     </section>
 
   </main>
-
-  <!-- Optional: improve carousel “feel” -->
-  <script>
-    // Pause carousel videos when they’re not visible (optional nice-to-have)
-    (function(){
-      const vids = document.querySelectorAll('.project-media--carousel video');
-      if (!('IntersectionObserver' in window) || vids.length === 0) return;
-
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          const v = e.target;
-          if (!e.isIntersecting) v.pause();
-          else {
-            // resume only if it's supposed to loop/autoplay
-            if (v.hasAttribute('loop')) v.play().catch(()=>{});
-          }
-        });
-      }, { threshold: 0.6 });
-
-      vids.forEach(v => obs.observe(v));
-    })();
-  </script>
 </body>
 </html>
