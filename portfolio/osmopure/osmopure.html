@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OsmoPure Membrane R&D Program | Rishabh Tennankore</title>
-<link rel="stylesheet" href="../../style.css?v=6" />
+  <title>OsmoPure Membrane R&amp;D Program | Rishabh Tennankore</title>
+
+  <!-- IMPORTANT: this file is /projects/osmopure/osmopure.html -->
+  <link rel="stylesheet" href="../../style.css?v=6" />
 </head>
 
 <body>
@@ -14,48 +16,46 @@
     <header class="project-header">
       <h1 class="project-h1">Membrane R&amp;D Program</h1>
       <nav class="project-breadcrumb">
-        <a href="../index.html#portfolio">Portfolio</a>
+        <a href="../../index.html#portfolio">Portfolio</a>
         <span class="sep">/</span>
-        <span>Membrane R&amp;D Program</span>
+        <span>Scalable Manufacturing of Pressure-Distillation Membranes</span>
       </nav>
     </header>
 
-    <!-- Media row (horizontal scroll slideshow) -->
-    <section class="project-media project-media--carousel" aria-label="Project media">
+    <!-- Story carousel -->
+    <section class="project-media project-media--story" aria-label="Project media" id="osmopureStory">
 
-      <!-- Slide 1 (image) -->
-      <div class="media-slide">
-        <img class="media-item" src="../assets/Projects/osmopure/1.jpg" loading="lazy" alt="OsmoPure membrane program overview" />
-      </div>
+      <!-- Slide 1: Overview -->
+      <article class="media-slide" id="s1-overview" aria-label="Overview slide">
+        <img class="media-item" src="../../assets/Projects/osmopure/1.jpg" loading="lazy" alt="Program overview" />
+        <div class="media-caption">
+          Slide 1 — Overview
+        </div>
+      </article>
 
-      <!-- Slide 2 (video) -->
-      <div class="media-slide">
-        <video
-          class="media-item"
-          src="../assets/Projects/osmopure/2.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-        ></video>
-      </div>
+      <!-- Slide 2 -->
+      <article class="media-slide" id="s2-test-workflow" aria-label="Test workflow slide">
+        <video class="media-item" src="../../assets/Projects/osmopure/2.mp4" autoplay muted loop playsinline></video>
+        <div class="media-caption">
+          Slide 2 — Test workflow
+        </div>
+      </article>
 
-      <!-- Slide 3 (image) -->
-      <div class="media-slide">
-        <img class="media-item" src="../assets/Projects/osmopure/3.jpg" loading="lazy" alt="Coating morphology / characterization" />
-      </div>
+      <!-- Slide 3 -->
+      <article class="media-slide" id="s3-doe-iteration" aria-label="DOE slide">
+        <img class="media-item" src="../../assets/Projects/osmopure/3.jpg" loading="lazy" alt="DOE iteration" />
+        <div class="media-caption">
+          Slide 3 — DOE + iteration
+        </div>
+      </article>
 
-      <!-- Slide 4 (video) -->
-      <div class="media-slide">
-        <video
-          class="media-item"
-          src="../assets/Projects/osmopure/4.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-        ></video>
-      </div>
+      <!-- Slide 4 -->
+      <article class="media-slide" id="s4-characterization" aria-label="Characterization slide">
+        <video class="media-item" src="../../assets/Projects/osmopure/4.mp4" autoplay muted loop playsinline></video>
+        <div class="media-caption">
+          Slide 4 — Characterization links to performance
+        </div>
+      </article>
 
     </section>
 
@@ -71,24 +71,96 @@
       </aside>
 
       <div class="project-content">
-        <div class="project-card">
+
+        <!-- Overview (ONLY for slide 1) -->
+        <div class="project-card" id="overviewCard">
           <h2>Overview</h2>
           <p>
-            At
-            <a href="https://www.sbir.gov/portfolio/2560559" target="_blank" rel="noopener noreferrer">OsmoPure Technologies</a>,
-            I helped build the membrane R&amp;D program from the ground up—defining test workflows, selecting materials,
-            running DOE-guided iteration, and connecting coating morphology/surface properties to separation performance.
+            <a href="https://www.sbir.gov/portfolio/2560559" target="_blank" rel="noopener noreferrer">OsmoPure</a>
+            is developing pressure-driven distillation membranes for high-value water purification and reuse.
+            Pressure distillation leverages hydrophobic porous media to pass vapor while rejecting dissolved species.
           </p>
-
           <p>
-            The work focused on scalable silicone and sol–gel coating architectures for hydrophobic modification of porous substrates,
-            with rapid feedback from characterization and performance benchmarking to guide design decisions and scale-up priorities.
+            My contributions focused on building an execution-ready R&amp;D loop: define a reliable test workflow,
+            iterate coating architectures with DOE, and connect morphology/surface properties to transport performance.
           </p>
         </div>
-      </div>
 
+        <!-- “What I did” linked to slides -->
+        <div class="project-card">
+          <h2>What I did</h2>
+
+          <ol class="story-steps" id="storySteps">
+            <li class="story-step" data-target="s2-test-workflow">
+              <button class="story-link" type="button">
+                <span class="story-kicker">Slide 2</span>
+                <span class="story-title">Built the test workflow</span>
+                <span class="story-text">Defined fixtures, SOP-style steps, and repeatable metrics for fast iteration.</span>
+              </button>
+            </li>
+
+            <li class="story-step" data-target="s3-doe-iteration">
+              <button class="story-link" type="button">
+                <span class="story-kicker">Slide 3</span>
+                <span class="story-title">DOE-guided coating iteration</span>
+                <span class="story-text">Screened silicone / sol–gel parameters to converge on robust architectures.</span>
+              </button>
+            </li>
+
+            <li class="story-step" data-target="s4-characterization">
+              <button class="story-link" type="button">
+                <span class="story-kicker">Slide 4</span>
+                <span class="story-title">Linked morphology to performance</span>
+                <span class="story-text">Used characterization feedback to explain wins/failures and set scale-up priorities.</span>
+              </button>
+            </li>
+          </ol>
+        </div>
+
+      </div>
     </section>
 
   </main>
+
+  <!-- Sync “What I did” to slideshow + click-to-scroll -->
+  <script>
+    (function () {
+      const story = document.getElementById('osmopureStory');
+      const steps = Array.from(document.querySelectorAll('#storySteps .story-step'));
+      const slides = Array.from(story.querySelectorAll('.media-slide'));
+
+      // Click a step -> scroll to slide
+      steps.forEach(step => {
+        const btn = step.querySelector('.story-link');
+        const targetId = step.getAttribute('data-target');
+        btn.addEventListener('click', () => {
+          const el = document.getElementById(targetId);
+          if (el) el.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        });
+      });
+
+      // Highlight the step for the slide currently in view
+      const byId = new Map(steps.map(s => [s.getAttribute('data-target'), s]));
+
+      const io = new IntersectionObserver((entries) => {
+        // pick the most visible slide in the carousel viewport
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visible) return;
+
+        const id = visible.target.id;
+        steps.forEach(s => s.classList.remove('is-active'));
+        const match = byId.get(id);
+        if (match) match.classList.add('is-active');
+      }, {
+        root: story,
+        threshold: [0.35, 0.5, 0.65]
+      });
+
+      slides.forEach(s => io.observe(s));
+    })();
+  </script>
 </body>
 </html>
