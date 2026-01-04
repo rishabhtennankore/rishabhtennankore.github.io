@@ -6,49 +6,37 @@
   <title>Scalable Manufacturing of Pressure-Distillation Membranes | Rishabh Tennankore</title>
   <link rel="stylesheet" href="../style.css?v=6" />
 
-  <!-- Page-local styles: only for slideshow + caption combo.
-       Keeps the rest of your site's formatting identical. -->
+  <!-- Page-local styles: only for the slideshow + linked caption panel -->
   <style>
-    /* =========================
-       Slide viewer inside .project-media
-       (matches your existing layout)
-    ========================== */
+    /* Keep the same top-section placement as your other pages:
+       we just replace the horizontal scroll with a single viewer card. */
     .project-media.osmo {
-      /* keep your existing project-media styling from style.css */
-      display: block; /* override horizontal scroll row for this page only */
+      display: block;
       padding: 0;
-      background: transparent;
-      border: 0;
     }
 
     .osmo-media-card {
-      /* visually aligns with your existing “card” feel without changing global CSS */
       background: var(--card, #fff);
       border-radius: 16px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
       overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
     .osmo-viewer {
       position: relative;
       width: 100%;
       background: #0f0f10;
-      min-height: 320px;
+      min-height: 360px;
     }
 
-    .osmo-viewer .osmo-item {
+    .osmo-item {
       width: 100%;
       height: 100%;
       display: none;
       object-fit: contain;
       background: #0f0f10;
     }
-    .osmo-viewer .osmo-item.active { display: block; }
-
-    .osmo-viewer video.osmo-item {
-      width: 100%;
-      height: 100%;
-    }
+    .osmo-item.active { display: block; }
 
     .osmo-controls {
       position: absolute;
@@ -83,7 +71,6 @@
       align-items: center;
       gap: 6px;
     }
-
     .osmo-dot {
       width: 8px;
       height: 8px;
@@ -94,12 +81,11 @@
     }
     .osmo-dot.active { background: rgba(255,255,255,0.95); }
 
-    /* Caption area under the viewer, still inside the same card */
+    /* Caption panel under viewer (this is Option 1) */
     .osmo-caption {
       padding: 14px 16px 16px;
       border-top: 1px solid rgba(0,0,0,0.08);
     }
-
     .osmo-eyebrow {
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -107,28 +93,24 @@
       color: rgba(17,17,17,0.60);
       margin: 0 0 6px 0;
     }
-
     .osmo-title {
       margin: 0 0 8px 0;
       font-size: 18px;
       line-height: 1.25;
     }
-
     .osmo-text {
       margin: 0;
       color: rgba(17,17,17,0.82);
       line-height: 1.45;
       transition: opacity 200ms ease;
-      min-height: 3.8em; /* keeps layout stable as captions change */
+      min-height: 3.8em; /* stable layout */
     }
-
     .osmo-credit {
       margin-top: 10px;
       font-size: 12px;
       color: rgba(17,17,17,0.60);
     }
 
-    /* Make it behave nicely on smaller screens */
     @media (max-width: 720px) {
       .osmo-viewer { min-height: 260px; }
       .osmo-text { min-height: unset; }
@@ -149,23 +131,18 @@
       </nav>
     </header>
 
-    <!-- Media row (replaced with slideshow+caption, but still lives where project-media usually is) -->
+    <!-- TOP SECTION: image slideshow (and slide-linked text beneath it) -->
     <section class="project-media osmo" aria-label="Project media">
       <div class="osmo-media-card">
-
         <div class="osmo-viewer" id="osmoViewer" aria-label="Media viewer">
-          <!-- Swap these src paths to your real assets -->
+          <!-- Replace these src paths with your real assets -->
           <img class="osmo-item active" data-i="0" src="../assets/Projects/osmopure/01_context.png" alt="System context schematic" loading="lazy" />
           <img class="osmo-item" data-i="1" src="../assets/Projects/osmopure/02_failure.png" alt="Failure mode schematic" loading="lazy" />
           <img class="osmo-item" data-i="2" src="../assets/Projects/osmopure/03_coating.png" alt="Coating physics schematic" loading="lazy" />
-          <img class="osmo-item" data-i="3" src="../assets/Projects/osmopure/04_backfill.png" alt="Backfilling strategy schematic" loading="lazy" />
+          <img class="osmo-item" data-i="3" src="../assets/Projects/osmopure/04_backfill.png" alt="Backfilling schematic" loading="lazy" />
           <img class="osmo-item" data-i="4" src="../assets/Projects/osmopure/05_architecture.png" alt="Multilayer architecture schematic" loading="lazy" />
           <img class="osmo-item" data-i="5" src="../assets/Projects/osmopure/06_validation.png" alt="Validation schematic" loading="lazy" />
           <img class="osmo-item" data-i="6" src="../assets/Projects/osmopure/07_roadmap.png" alt="Roadmap schematic" loading="lazy" />
-
-          <!-- Optional: include one video as a slide (no autoplay so it doesn't hijack UX)
-          <video class="osmo-item" data-i="2" src="../assets/Projects/osmopure/demo.mp4" muted playsinline controls></video>
-          -->
 
           <div class="osmo-controls" aria-label="Slideshow controls">
             <button class="osmo-btn" type="button" id="osmoPrev" aria-label="Previous slide">‹</button>
@@ -181,14 +158,13 @@
             Pressure distillation relies on a hydrophobic membrane sustaining an air layer under pressure; premature liquid entry collapses performance.
           </p>
           <div class="osmo-credit" id="osmoCredit">
-            Illustrative schematics only; prior-art images (if used) are from public literature for explanatory purposes.
+            Illustrative schematics only; any prior-art images are from public literature for explanatory purposes.
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- Content grid (unchanged from your template) -->
+    <!-- BOTTOM SECTION: left sidebar + right content (unchanged layout) -->
     <section class="project-body">
 
       <aside class="project-sidebar">
@@ -212,19 +188,19 @@
           </p>
         </div>
 
-        <!-- Optional: keep a single short "What I did" card (not a wall of text) -->
         <div class="project-card">
-          <h2>What I Did</h2>
-          <p>
-            Built thickness metrology + process calibration for blade-coated sol-gel films; resolved substrate/solvent incompatibility; introduced pore backfilling
-            to limit wicking; diagnosed pressure-failure as heterogeneity-driven global breakthrough; and validated a multilayer membrane architecture that improved
-            pressure tolerance and enabled measurable salt rejection.
-          </p>
+          <h2>Key Contributions</h2>
+          <ul>
+            <li>Built thickness metrology + coating calibration to connect film thickness to process conditions.</li>
+            <li>Resolved substrate/solvent incompatibility and decoupled coating from gelation via controlled post-cure.</li>
+            <li>Introduced pore backfilling to limit wicking and keep the functional layer surface-localized.</li>
+            <li>Diagnosed heterogeneity-driven global failure under pressure and validated a multilayer architecture to arrest breakthrough.</li>
+            <li>Mapped short-term/long-term failure modes and defined a roadmap for modulus/thickness optimization and cycling tests.</li>
+          </ul>
         </div>
-
       </div>
-    </section>
 
+    </section>
   </main>
 
   <script>
@@ -240,13 +216,12 @@
       const textEl = document.getElementById("osmoText");
       const creditEl = document.getElementById("osmoCredit");
 
-      // Captions: keep these short (2–3 lines max)
       const captions = [
         {
           eyebrow: "SYSTEM CONTEXT",
           title: "Pressure Distillation (Prior Art)",
           text: "Pressure distillation relies on a hydrophobic membrane sustaining an air layer under pressure; premature liquid entry collapses performance.",
-          credit: "If using a screenshot from a paper: crop panel labels and add a clear attribution in your caption."
+          credit: "If using a screenshot from a paper: crop panel labels and add attribution (e.g., ‘reproduced from prior published work’)."
         },
         {
           eyebrow: "FAILURE MODE",
@@ -264,7 +239,7 @@
           eyebrow: "SELECTIVITY CONTROL",
           title: "Limit Pore Infiltration",
           text: "A pore-backfilling strategy reduces partitioning into the substrate so the functional layer remains thin and surface-localized.",
-          credit: "Adapted as a general technique; no confidential solvent/formulation details."
+          credit: "No confidential solvent/formulation details shown."
         },
         {
           eyebrow: "ARCHITECTURE",
