@@ -3,8 +3,159 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> Yamaha XSR700 Custom Tail Tidy | Rishabh Tennankore</title>
+  <title>Scalable Manufacturing of Pressure-Distillation Membranes | Rishabh Tennankore</title>
   <link rel="stylesheet" href="../style.css?v=6" />
+
+  <!-- Page-local styles (keeps your global style.css untouched) -->
+  <style>
+    /* =========================
+       Osmopure: slide-linked caption panel (Option 1)
+    ========================== */
+
+    .slide-wrap {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    /* Media viewer (single visible item) */
+    .viewer {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+      min-height: 280px;
+    }
+
+    .viewer .viewer-item {
+      width: 100%;
+      height: 100%;
+      display: none;
+      object-fit: contain;
+      background: #111;
+    }
+    .viewer .viewer-item.active {
+      display: block;
+    }
+
+    .viewer video.viewer-item {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Controls */
+    .viewer-controls {
+      position: absolute;
+      inset: auto 12px 12px 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .viewer-controls button {
+      pointer-events: auto;
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.92);
+      color: #111;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    }
+    .viewer-controls button:active { transform: translateY(1px); }
+
+    .viewer-dots {
+      pointer-events: auto;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(0,0,0,0.25);
+      cursor: pointer;
+    }
+    .dot.active {
+      background: rgba(255,255,255,0.95);
+    }
+
+    /* Caption panel */
+    .caption-panel {
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      padding: 16px 16px 14px;
+      position: sticky;
+      top: 16px;
+    }
+
+    .caption-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      color: rgba(17,17,17,0.60);
+      margin: 0 0 6px 0;
+    }
+
+    .caption-title {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .caption-text {
+      margin: 0;
+      color: rgba(17,17,17,0.82);
+      line-height: 1.45;
+      min-height: 5.2em; /* prevents page jumping */
+      transition: opacity 220ms ease;
+    }
+
+    .caption-credit {
+      margin-top: 12px;
+      font-size: 12px;
+      color: rgba(17,17,17,0.60);
+    }
+
+    /* Optional accordion */
+    .accordion {
+      margin-top: 14px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 12px;
+    }
+    .accordion summary {
+      cursor: pointer;
+      font-weight: 700;
+      user-select: none;
+      list-style: none;
+    }
+    .accordion summary::-webkit-details-marker { display: none; }
+    .accordion .acc-body {
+      margin-top: 10px;
+      color: rgba(17,17,17,0.82);
+      line-height: 1.5;
+    }
+    .acc-body p { margin: 0 0 10px 0; }
+
+    /* Make it responsive */
+    @media (max-width: 980px) {
+      .slide-wrap { grid-template-columns: 1fr; }
+      .caption-panel { position: static; }
+      .caption-text { min-height: unset; }
+    }
+
+    /* If you want to reuse your existing .project-media row elsewhere,
+       this page replaces it with a single viewer for better UX. */
+  </style>
 </head>
 
 <body>
@@ -12,24 +163,13 @@
 
     <!-- Title bar -->
     <header class="project-header">
-      <h1 class="project-h1">Yamaha XSR700 Custom Tail Tidy </h1>
+      <h1 class="project-h1">Scalable Manufacturing of Pressure-Distillation Membranes</h1>
       <nav class="project-breadcrumb">
         <a href="../index.html#portfolio">Portfolio</a>
         <span class="sep">/</span>
-        <span>Yamaha XSR700 Custom Tail Tidy</span>
+        <span>Scalable Manufacturing of Pressure-Distillation Membranes</span>
       </nav>
     </header>
-
-    <!-- Media row (horizontal scroll) -->
-    <section class="project-media" aria-label="Project media">
-     
-      <!-- Example: images -->
-      <img class="media-item" src="../assets/Projects/motoCAD/1.png" loading="lazy" />
-
-       <!-- Example: looping video -->
-      <video class="media-item" src="../assets/Projects/motoCAD/tailtidy.mp4" autoplay muted loop playsinline controls></video>
-
-    </section>
 
     <!-- Content grid -->
     <section class="project-body">
@@ -37,29 +177,226 @@
       <aside class="project-sidebar">
         <div class="project-meta-box">
           <div class="meta-row"><strong>Project Date</strong><span>2025</span></div>
-          <div class="meta-row"><strong>Category</strong><span>CAD &amp; Fabrication</span></div>
-          <div class="meta-row"><strong>Tools</strong><span>Fusion 360</span></div>
+          <div class="meta-row"><strong>Category</strong><span>Industry</span></div>
+          <div class="meta-row"><strong>Skills</strong><span>Sol-Gel Processing, Blade Coating, CVD, Formulations, DOE, Profilometry, Goniometry, SEM</span></div>
         </div>
       </aside>
 
       <div class="project-content">
+
+        <!-- Slide-linked carousel + caption panel -->
+        <div class="project-card">
+          <h2>Project Narrative</h2>
+
+          <div class="slide-wrap" aria-label="Slide-linked narrative">
+            <!-- Viewer -->
+            <div class="viewer" id="viewer" aria-label="Media viewer">
+              <!-- Replace these with your real files -->
+              <img class="viewer-item active" data-slide="1" src="../assets/Projects/osmopure/01_context.png" alt="Pressure distillation context schematic" loading="lazy" />
+              <img class="viewer-item" data-slide="2" src="../assets/Projects/osmopure/02_failure.png" alt="Early failure mode schematic" loading="lazy" />
+              <img class="viewer-item" data-slide="3" src="../assets/Projects/osmopure/03_coating_physics.png" alt="Coating physics and thickness control schematic" loading="lazy" />
+              <img class="viewer-item" data-slide="4" src="../assets/Projects/osmopure/04_process_control.png" alt="Process control and gelation schematic" loading="lazy" />
+              <img class="viewer-item" data-slide="5" src="../assets/Projects/osmopure/05_architecture.png" alt="Multilayer architecture schematic" loading="lazy" />
+              <img class="viewer-item" data-slide="6" src="../assets/Projects/osmopure/06_validation.png" alt="Performance validation schematic" loading="lazy" />
+              <img class="viewer-item" data-slide="7" src="../assets/Projects/osmopure/07_roadmap.png" alt="Failure modes and roadmap schematic" loading="lazy" />
+
+              <!-- Example video (optional). If you use this, swap one image out.
+              <video class="viewer-item" data-slide="3" src="../assets/Projects/osmopure/demo.mp4" muted playsinline controls></video>
+              -->
+
+              <div class="viewer-controls" aria-label="Carousel controls">
+                <button type="button" id="prevBtn" aria-label="Previous slide">‹</button>
+
+                <div class="viewer-dots" id="dots" aria-label="Slide selector">
+                  <!-- Dots are generated by JS to match the number of slides -->
+                </div>
+
+                <button type="button" id="nextBtn" aria-label="Next slide">›</button>
+              </div>
+            </div>
+
+            <!-- Caption panel -->
+            <aside class="caption-panel" aria-label="Slide caption panel">
+              <p class="caption-eyebrow" id="capEyebrow">SYSTEM CONTEXT</p>
+              <h3 class="caption-title" id="capTitle">Pressure Distillation (Prior Art)</h3>
+              <p class="caption-text" id="capText">
+                Pressure distillation relies on a hydrophobic modificaton at pore entrances to sustain water-vapor transport across the air gap; premature liquid entry collapses performance.
+              </p>
+              <div class="caption-credit" id="capCredit">
+                Figures are illustrative; prior-art schematics are sourced from public literature and shown for explanatory purposes.
+              </div>
+
+              <details class="accordion">
+                <summary>Technical Summary</summary>
+                <div class="acc-body">
+                  <p>
+                    I joined to convert an early-stage sol-gel coating concept into a physics-grounded, manufacturable membrane architecture.
+                    Work focused on thickness control, substrate/solvent compatibility, limiting pore wicking via backfilling, and diagnosing pressure-driven failure.
+                  </p>
+                  <p>
+                    A multilayer approach using a compliant underlayer was used to prevent local defects from causing global breakthrough,
+                    enabling order-of-magnitude improvements in pressure stability and measurable salt rejection, while defining clear next-step failure modes.
+                  </p>
+                  <p style="font-size:12px; color: rgba(17,17,17,0.60); margin:0;">
+                    Note: This summary intentionally avoids confidential formulations, operating conditions, and internal targets.
+                  </p>
+                </div>
+              </details>
+            </aside>
+          </div>
+        </div>
+
+        <!-- High-level overview (keep short to avoid a wall of text) -->
         <div class="project-card">
           <h2>Overview</h2>
           <p>
-            I designed a minimal, street-legal tail tidy for the Yamaha XSR700 to clean up the rear profile for a bobber-inspired build. The custom housing integrates the tail lamp, turn signals, and license plate mount into a single compact assembly while retaining OEM mounting points and proper lighting geometry.
-
-The design was developed as a fully parametric CAD model and prepared for 3D printing using <em>Formlabs'</em> <a href="https://formlabs.com/store/materials/rigid-10k-resin/?srsltid=AfmBOorpLVtIJDXobmzzk2MIFI_96iAFPNAkzDC0v9RiU3oeY1UBt0Fk" target="_blank" rel="noopener noreferrer">Rigid 10K resin</a>, chosen for its exceptional tensile and flexural strength, and heat resistance. Key design considerations included structural integrity, wire routing, and packaging constraints.
-
-This project blended aesthetic-driven design with practical engineering and materials selection.
-            
+            Osmopure is developing membranes for pressure-driven purification where a thin hydrophobic top layer must sustain high liquid entry pressures
+            without sacrificing transport. My contribution focused on establishing quantitative coating control, resolving substrate/process failure modes,
+            and developing a multilayer architecture that significantly increased pressure stability and enabled measurable salt rejection.
           </p>
-
-         
         </div>
+
       </div>
-
     </section>
-
   </main>
+
+  <!-- Page-local JS -->
+  <script>
+    (function () {
+      const viewer = document.getElementById('viewer');
+      const items = Array.from(viewer.querySelectorAll('.viewer-item'));
+      const dotsWrap = document.getElementById('dots');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      const capEyebrow = document.getElementById('capEyebrow');
+      const capTitle = document.getElementById('capTitle');
+      const capText = document.getElementById('capText');
+      const capCredit = document.getElementById('capCredit');
+
+      // Slide-linked captions (keep each to ~2–3 lines)
+      const slides = [
+        {
+          eyebrow: "SYSTEM CONTEXT",
+          title: "Pressure Distillation (Prior Art)",
+          text: "Pressure distillation relies on a hydrophobic membrane sustaining an air layer under pressure; premature liquid entry collapses performance.",
+          credit: "Figures are illustrative; prior-art schematics are sourced from public literature and shown for explanatory purposes."
+        },
+        {
+          eyebrow: "FAILURE MODE",
+          title: "Why Early Coatings Failed",
+          text: "Uncontrolled pore wicking and heterogeneous surface structures can convert a local breakthrough into global failure under pressure.",
+          credit: "Conceptual schematic (not a recipe)."
+        },
+        {
+          eyebrow: "COATING PHYSICS",
+          title: "Thickness Control via Capillary Number",
+          text: "Profilometry-based calibration connected coating thickness to speed and viscosity, revealing manufacturability constraints at high viscosities.",
+          credit: "Method: thickness metrology + process modeling."
+        },
+        {
+          eyebrow: "PROCESS CONTROL",
+          title: "Decouple Coating from Gelation",
+          text: "Testing confirmed incomplete gelation during coating, motivating a controlled post-coat cure step and a narrow, reproducible processing window.",
+          credit: "Conceptual summary only."
+        },
+        {
+          eyebrow: "ARCHITECTURE",
+          title: "Multilayer Design to Arrest Global Failure",
+          text: "A compliant, vapor-permeable underlayer can prevent local defects from causing catastrophic global breakthrough while preserving transport.",
+          credit: "Architecture-level concept inspired by multilayer membrane design."
+        },
+        {
+          eyebrow: "VALIDATION",
+          title: "Pressure Stability + Selectivity",
+          text: "The multilayer architecture produced order-of-magnitude gains in breakthrough pressure and enabled measurable salt rejection where none existed previously.",
+          credit: "No confidential operating conditions or formulations shown."
+        },
+        {
+          eyebrow: "ROADMAP",
+          title: "Failure Modes & Next Steps",
+          text: "Pressure-driven deformation and cracking define the next constraints; increasing modulus, minimizing layer thickness, and cycling tests were the next levers.",
+          credit: "Forward-looking plan (non-proprietary)."
+        }
+      ];
+
+      let idx = 0;
+
+      function renderDots() {
+        dotsWrap.innerHTML = "";
+        items.forEach((_, i) => {
+          const b = document.createElement('button');
+          b.type = "button";
+          b.className = "dot" + (i === idx ? " active" : "");
+          b.setAttribute("aria-label", `Go to slide ${i + 1}`);
+          b.addEventListener("click", () => setSlide(i));
+          dotsWrap.appendChild(b);
+        });
+      }
+
+      function setActiveMedia(i) {
+        items.forEach((el, j) => {
+          el.classList.toggle("active", j === i);
+
+          // Pause any non-active videos
+          if (el.tagName === "VIDEO") {
+            try { el.pause(); } catch (e) {}
+          }
+        });
+
+        // If active is a video, don't autoplay by default (keeps page quiet/clean)
+        const active = items[i];
+        if (active && active.tagName === "VIDEO") {
+          // Leave it paused until the user hits play
+          active.controls = true;
+        }
+      }
+
+      function setCaption(i) {
+        const s = slides[i] || slides[0];
+        // Fade text slightly to feel “designed”
+        capText.style.opacity = "0";
+        window.setTimeout(() => {
+          capEyebrow.textContent = s.eyebrow;
+          capTitle.textContent = s.title;
+          capText.textContent = s.text;
+          capCredit.textContent = s.credit;
+          capText.style.opacity = "1";
+        }, 120);
+      }
+
+      function setSlide(i) {
+        idx = (i + items.length) % items.length;
+        setActiveMedia(idx);
+        setCaption(idx);
+        renderDots();
+      }
+
+      // Buttons
+      prevBtn.addEventListener("click", () => setSlide(idx - 1));
+      nextBtn.addEventListener("click", () => setSlide(idx + 1));
+
+      // Swipe (mobile)
+      let startX = null;
+      viewer.addEventListener("touchstart", (e) => {
+        if (!e.touches || e.touches.length !== 1) return;
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      viewer.addEventListener("touchend", (e) => {
+        if (startX == null) return;
+        const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+        const dx = endX - startX;
+        startX = null;
+        if (Math.abs(dx) < 40) return;
+        if (dx > 0) setSlide(idx - 1);
+        else setSlide(idx + 1);
+      }, { passive: true });
+
+      // Init
+      renderDots();
+      setCaption(0);
+    })();
+  </script>
 </body>
 </html>
