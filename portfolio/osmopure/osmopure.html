@@ -150,45 +150,110 @@
 
   </main>
 
-  <!-- Sync “What I did” to slideshow + click-to-scroll -->
-  <script>
-    (function () {
-      const story = document.getElementById('osmopureStory');
-      const steps = Array.from(document.querySelectorAll('#storySteps .story-step'));
-      const slides = Array.from(story.querySelectorAll('.media-slide'));
+ <script>
+(() => {
+  const viewer = document.getElementById("osmoViewer");
+  const items = Array.from(viewer.querySelectorAll(".osmo-item"));
+  const dotsWrap = document.getElementById("osmoDots");
+  const prevBtn = document.getElementById("osmoPrev");
+  const nextBtn = document.getElementById("osmoNext");
 
-      // Click a step -> scroll to slide
-      steps.forEach(step => {
-        const btn = step.querySelector('.story-link');
-        const targetId = step.getAttribute('data-target');
-        btn.addEventListener('click', () => {
-          const el = document.getElementById(targetId);
-          if (el) el.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-        });
-      });
+  // Bullet groups (one per slide). Each group has data-slide="0..n-1"
+  const bulletGroups = Array.from(document.querySelectorAll(".slide-bullets"));
 
-      // Highlight the step for the slide currently in view
-      const byId = new Map(steps.map(s => [s.getAttribute('data-target'), s]));
+  // Caption fields (if you have them)
+  const eyebrowEl = document.getElementById("osmoEyebrow");
+  const titleEl = document.getElementById("osmoTitle");
+  const textEl = document.getElementById("osmoText");
+  const creditEl = document.getElementById("osmoCredit");
 
-      const io = new IntersectionObserver((entries) => {
-        // pick the most visible slide in the carousel viewport
-        const visible = entries
-          .filter(e => e.isIntersecting)
-          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+  // If you're using caption objects, length MUST match items.length
+  const captions = window.OSMO_CAPTIONS || []; // optional pattern
+  // If you embedded captions directly in JS earlier, keep them here instead.
+  // const captions = [ ... ];
 
-        if (!visible) return;
+  let idx = 0;
 
-        const id = visible.target.id;
-        steps.forEach(s => s.classList.remove('is-active'));
-        const match = byId.get(id);
-        if (match) match.classList.add('is-active');
-      }, {
-        root: story,
-        threshold: [0.35, 0.5, 0.65]
-      });
+  function renderDots() {
+    dotsWrap.innerHTML = "";
+    items.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "osmo-dot" + (i === idx ? " active" : "");
+      d.setAttribute("aria-label", `Go to slide ${i + 1}`);
+      d.addEventListener("click", () => setSlide(i));
+      dotsWrap.appendChild(d);
+    });
+  }
 
-      slides.forEach(s => io.observe(s));
-    })();
-  </script>
+  function setActiveMedia(i) {
+    items.forEach((el, j) => {
+      const isActive = j === i;
+      el.classList.toggle("active", isActive);
+
+      // pause non-active videos
+      if (el.tagName === "VIDEO" && !isActive) {
+        try { el.pause(); el.currentTime = 0; } catch (e) {}
+      }
+    });
+  }
+
+  function setBullets(i) {
+    if (!bulletGroups.length) return;
+    bulletGroups.forEach((g) => {
+      const s = Number(g.dataset.slide);
+      g.classList.toggle("active", s === i);
+    });
+  }
+
+  function setCaption(i) {
+    if (!eyebrowEl || !titleEl || !textEl || !creditEl) return;
+    if (!captions.length) return; // if you aren’t using caption objects, ignore this
+
+    const c = captions[i] || captions[0];
+
+    textEl.style.opacity = "0";
+    window.setTimeout(() => {
+      eyebrowEl.textContent = c.eyebrow || "";
+      titleEl.textContent = c.title || "";
+      textEl.textContent = c.text || "";
+      creditEl.textContent = c.credit || "";
+      textEl.style.opacity = "1";
+    }, 120);
+  }
+
+  function setSlide(i) {
+    idx = (i + items.length) % items.length;
+    setActiveMedia(idx);
+    setBullets(idx);
+    setCaption(idx);
+    renderDots();
+  }
+
+  prevBtn?.addEventListener("click", () => setSlide(idx - 1));
+  nextBtn?.addEventListener("click", () => setSlide(idx + 1));
+
+  // swipe
+  let startX = null;
+  viewer.addEventListener("touchstart", (e) => {
+    if (!e.touches || e.touches.length !== 1) return;
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  viewer.addEventListener("touchend", (e) => {
+    if (startX == null) return;
+    const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+    const dx = endX - startX;
+    startX = null;
+    if (Math.abs(dx) < 40) return;
+    if (dx > 0) setSlide(idx - 1);
+    else setSlide(idx + 1);
+  }, { passive: true });
+
+  // init
+  setSlide(0);
+})();
+</script>
+
 </body>
 </html>
