@@ -781,6 +781,25 @@ h2 { margin-top: 0; }
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
+.project-header-left{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.project-org-logo{
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+@media (max-width: 700px){
+  .project-org-logo{
+    height: 28px;
+  }
+}
+
 .project-h1{
   margin: 0;
   font-size: clamp(1.6rem, 2.2vw, 2.2rem);
