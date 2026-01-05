@@ -781,24 +781,29 @@ h2 { margin-top: 0; }
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-.project-header-left{
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.project-org-badge{
+  position: absolute;
+  top: 36px;          /* aligns with page padding */
+  left: 22px;
+  z-index: 2;
+  pointer-events: none; /* prevents it from feeling clickable */
 }
 
-.project-org-logo{
-  height: 34px;
+.project-org-badge img{
+  height: 38px;
   width: auto;
-  object-fit: contain;
-  opacity: 0.85;
+  opacity: 0.75;
+  filter: grayscale(100%);
 }
 
-@media (max-width: 700px){
-  .project-org-logo{
-    height: 28px;
+@media (max-width: 900px){
+  .project-org-badge{
+    position: static;
+    margin-bottom: 8px;
+    pointer-events: auto;
   }
 }
+
 
 .project-h1{
   margin: 0;
