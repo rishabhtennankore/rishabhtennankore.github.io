@@ -1000,6 +1000,11 @@ h2 { margin-top: 0; }
 .story-step.is-active .story-bullets li:nth-child(3) { transition-delay: 180ms; }
 .story-step.is-active .story-bullets li:nth-child(4) { transition-delay: 240ms; }
 
+.story-bullets li {
+  opacity: 0.35;
+  transform: translateY(0);
+}
+
 /* =========================
    Contact Form
 ========================= */
