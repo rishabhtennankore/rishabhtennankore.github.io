@@ -802,11 +802,12 @@ h2 { margin-top: 0; }
 }
 
 .org-corner-badge img{
-  width: 34px;          /* ↑ scale logo with box */
-  height: 34px;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
+
   filter: grayscale(100%);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 @media (max-width: 700px){
