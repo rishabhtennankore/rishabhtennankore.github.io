@@ -1,1 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Engineering Reversible Capillary Pumps | Rishabh Tennankore</title>
 
+  <!-- IMPORTANT: this file is /projects/photoosmotic.html -->
+  <link rel="stylesheet" href="../style.css?v=6" />
+</head>
+
+<body>
+  <main class="project-page">
+  <div class="org-corner-badge"
+   aria-label="OsmoPure attribution">
+  <img src="../../assets/logos/cu.png" >
+  </div>
+
+
+    <!-- Title bar -->
+    <header class="project-header">
+    
+      <h1 class="project-h1">The Curious Case of Liquid Metals</h1>
+      
+      <nav class="project-breadcrumb">
+        <a href="../../index.html#portfolio">Portfolio</a>
+        <span class="sep">/</span>
+        <span>Engineering Reversible Capillary Pumps</span> 
+      </nav>
+    </header>
+
+    <!-- Story carousel -->
+    <section class="project-media project-media--story" aria-label="Project media" id="osmopureStory">
+
+      <!-- Slide 1: Overview -->
+      <article class="media-slide" id="s1">
+        <img class="media-item" src="../../assets/Projects/egain/1.png" loading="lazy" alt="Program overview" />
+        <div class="media-caption">
+          Slide 1 — Surface-tension actuators - how do they compare?
+        </div>
+      </article>
+      
+         
+      <!-- Slide 2 -->
+      <article class="media-slide" id="s2">
+        <img class="media-item" src="../../assets/Projects/egain/2.png" loading="lazy" />
+        <div class="media-caption">
+          Slide 2 — Unique potential of STAs for miniaturization
+        </div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="media-slide" id="s3">
+        <img class="media-item" src="../../assets/Projects/egain/3.png" loading="lazy"  />
+        <div class="media-caption">
+          Slide 3 — Traditional Electrowetting
+        </div>
+      </article>
+
+      <!-- Slide 4 -->
+      <article class="media-slide" id="s4">
+      <img class="media-item" src="../../assets/Projects/egain/4.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 4 — Capillary Imbibition Prior Art
+        </div>
+      </article>
+
+       <!-- Slide 5 -->
+      <article class="media-slide" id="s5">
+      <img class="media-item" src="../../assets/Projects/egain/5.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 5 — Defining design parameter space
+        </div>
+      </article>
+
+       <!-- Slide 6 -->
+      <article class="media-slide" id="s6">
+      <img class="media-item" src="../../assets/Projects/egain/6.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 6 — The Case for Liquid Metals  
+        </div>
+      </article>
+    </section>
+
+    <!-- Content grid -->
+    <section class="project-body">
+
+      <aside class="project-sidebar">
+        <div class="project-meta-box">
+          <div class="meta-row"><strong>Project Date</strong><span>2020-2025</span></div>
+          <div class="meta-row"><strong>Category</strong><span>Research</span></div>
+          <div class="meta-row meta-row--pills">
+  <strong>Skills</strong>
+  <span class="meta-pills">
+    <span class="pill">Potentiostat Techniques</span>
+    <span class="pill">Electrochemical Impedance Spectroscopy</span>
+    <span class="pill">Fluorescence Microscopy</span>
+    <span class="pill">Texture Analyzer</span>
+        <span class="pill">Displacemnent Sensors</span>
+        <span class="pill">CAD</span>
+    <span class="pill">Arduino</span>
+
+    
+
+  </span>
+</div>
+        </div>
+      </aside>
+
+      <div class="project-content">
+
+        <!-- Overview -->
+        
+       <div class="project-card" id="overviewCard">
+         <h2> Abstract </h2>
+         <p>
+           Liquid Metal actuators offer a compelling path toward compact, efficient artificial muscles by exploiting surface tension–dominated mechanics at small length scales. Here, we present a low-voltage (<1 V) actuation strategy based on electrochemically controlled modulation of interfacial tension in eutectic gallium–indium (EGaIn). Reversible oxidation of an oxide skin enables controllable liquid metal imbibition into microscale channels, governed by favorable Laplace pressure scaling. Using experimentally validated scaling laws, we design an elastically coupled blister actuator that achieves a seven-fold increase in force per droplet relative to prior liquid-metal artificial muscle architectures.
+         </p>
+       </div>
+
+        <div class="project-card" id="disclosureCard">
+         <h2> Disclosure </h2>
+         <p>This work is currently being prepared for submission to <a href="https://www.sciencedirect.com/journal/sensors-and-actuators-b-chemical">Sensors &amp; Actuators</a>. To protect the integrity of the manuscript, detailed experimental procedures, data, and quantitative analyses are intentionally omitted. The material presented here is intended solely to convey the scientific motivation and conceptual framework underlying the research.
+         </p>
+       </div>
+         
+   
+ 
+  
+</div>
+
+      </div>
+    </section>
+
+  </main>
+<script>
+(() => {
+  const scroller = document.getElementById("osmopureStory");          // <-- your carousel
+  const slides = Array.from(scroller.querySelectorAll(".media-slide"));
+  const steps  = Array.from(document.querySelectorAll(".story-step"));
+
+  if (!scroller || !slides.length || !steps.length) return;
+
+  // Map slide id -> step element
+  const stepById = new Map();
+  steps.forEach(step => {
+    const id = step.dataset.target;
+    if (id) stepById.set(id, step);
+  });
+
+  // Helper: activate one step (no "grey" state that can get stuck)
+  function setActiveStep(slideId) {
+    steps.forEach(s => s.classList.remove("is-active"));
+    const step = stepById.get(slideId);
+    if (step) step.classList.add("is-active");
+  }
+
+  // Click a step -> scroll carousel to that slide
+  steps.forEach(step => {
+    const targetId = step.dataset.target;
+    const target = document.getElementById(targetId);
+    const btn = step.querySelector(".story-link");
+    if (!btn || !target) return;
+
+    btn.addEventListener("click", () => {
+      // Scroll the horizontal container so the slide aligns at start
+      scroller.scrollTo({
+        left: target.offsetLeft - scroller.offsetLeft,
+        behavior: "smooth"
+      });
+      setActiveStep(targetId);
+    });
+  });
+
+  // Observe which slide is mostly visible in the horizontal scroller
+  const io = new IntersectionObserver((entries) => {
+    // pick the most visible intersecting slide
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (visible && visible.target && visible.target.id) {
+      setActiveStep(visible.target.id);
+    }
+  }, {
+    root: scroller,
+    threshold: [0.55, 0.65, 0.75] // tweak if needed
+  });
+
+  slides.forEach(s => io.observe(s));
+
+  // Initialize on slide 1
+  setActiveStep(slides[0].id);
+})();
+</script>
+
+
+</body>
+</html>
