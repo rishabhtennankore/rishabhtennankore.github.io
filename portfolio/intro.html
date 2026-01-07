@@ -1,1 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bioinspired Actuation Mechanisms | Rishabh Tennankore</title>
 
+  <!-- IMPORTANT: this file is /projects/osmopure/osmopure.html -->
+  <link rel="stylesheet" href="../style.css?v=6" />
+</head>
+
+<body>
+  <main class="project-page">
+  <div class="org-corner-badge"
+   aria-label="OsmoPure attribution">
+  <img src="../../assets/logos/cu.png" >
+  </div>
+
+
+    <!-- Title bar -->
+    <header class="project-header">
+    
+      <h1 class="project-h1">Bioinspired Actuation Mechanisms</h1>
+      
+      <nav class="project-breadcrumb">
+        <a href="../../index.html#portfolio">Portfolio</a>
+        <span class="sep">/</span>
+        <span>Bioinspired Actuation Mechanisms</span>
+      </nav>
+    </header>
+
+    <!-- Story carousel -->
+    <section class="project-media project-media--story" aria-label="Project media" id="osmopureStory">
+
+      <!-- Slide 1: Overview -->
+      <article class="media-slide" id="s1" ">
+        <img class="media-item" src="../../assets/Projects/intro/1.png" loading="lazy" alt="Program overview" />
+        <div class="media-caption">
+          Slide 1 — Turgor-driven movements in animals
+        </div>
+      </article>
+      
+         
+      <!-- Slide 2 -->
+      <article class="media-slide" id="s2">
+        <img class="media-item" src="../../assets/Projects/intro/2.png" loading="lazy" />
+        <div class="media-caption">
+          Slide 2 — Turgor-driven movements in plants
+        </div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="media-slide" id="s3">
+        <img class="media-item" src="../../assets/Projects/intro/3.png" loading="lazy"  />
+        <div class="media-caption">
+          Slide 3 — Engineering turgor in soft mattery systems
+        </div>
+      </article>
+
+      <!-- Slide 4 -->
+      <article class="media-slide" id="s4">
+      <img class="media-item" src="../../assets/Projects/intro/4.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 4 — Surface-tension driven vascular transport and gas separation in plants
+        </div>
+      </article>
+
+       <!-- Slide 5 -->
+      <article class="media-slide" id="s5">
+      <img class="media-item" src="../../assets/Projects/osmopure/5.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 5 — Unique potential of surface-tension actuators  
+        </div>
+      </article>
+
+       <!-- Slide 6 -->
+      <article class="media-slide" id="s6-roadmap" aria-label="roadmap slide">
+      <img class="media-item" src="../../assets/Projects/osmopure/6.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 6 — Engineering reversible capillary action in soft matter  
+        </div>
+      </article>
+    </section>
+
+    <!-- Content grid -->
+    <section class="project-body">
+
+      <aside class="project-sidebar">
+        <div class="project-meta-box">
+          <div class="meta-row"><strong>Project Date</strong><span>2020-2025</span></div>
+          <div class="meta-row"><strong>Category</strong><span>Research</span></div>
+          <div class="meta-row meta-row--pills">
+  <strong>Skills</strong>
+  <span class="meta-pills">
+    <span class="pill">Literature Analysis</span>
+    <span class="pill">Physics</span>
+    <span class="pill">Hypothesis-driven R&D</span>
+    </span>
+</div>
+        </div>
+      </aside>
+
+      <div class="project-content">
+
+        <!-- Overview -->
+        
+       <div class="project-card" id="overviewCard">
+         <h2> Overview </h2>
+         <p>
+           Hydraulic and pneumatic actuators, as seminal technologies of the field of soft robotics (because of their high force output and large stroke), showcased the application of systems with inherent compliance towards augmenting traditional rigid robotics for enhanced collaboration. 
+           Despite their significant advantages, these systems were fundamentally limited by the need for external pumps making them bulky and ill-suited for easy integration and remote application. Within the broad landscape of emerging soft actuators, few platforms successfully combine low energy costs (e.g. low power input, high efficiency) with maximum performance (e.g. high energy-density, high speed).  My thesis explored the unique potential of bioinspired fluid-based mechanisms where the medium acts as a transduction carrier – translating molecular scale chemical potential into macroscopic mechanical output – as a route towards improving the performance of photomechanical and electrochemical  actuators. 
+
+      
+         </p>
+       </div>
+
+        <div class="project-card" id="disclosureCard">
+         <h2> Disclosure </h2>
+         <p>
+           This case study is abridged and adapted from Chapter 1 of my thesis titled - "Bioinspired Fluid-based Actuation Strategies for Soft Robotics". 
+         </p>
+       </div>
+         
+  
+
+      </div>
+    </section>
+
+  </main>
+<script>
+(() => {
+  const scroller = document.getElementById("osmopureStory");          // <-- your carousel
+  const slides = Array.from(scroller.querySelectorAll(".media-slide"));
+  const steps  = Array.from(document.querySelectorAll(".story-step"));
+
+  if (!scroller || !slides.length || !steps.length) return;
+
+  // Map slide id -> step element
+  const stepById = new Map();
+  steps.forEach(step => {
+    const id = step.dataset.target;
+    if (id) stepById.set(id, step);
+  });
+
+  // Helper: activate one step (no "grey" state that can get stuck)
+  function setActiveStep(slideId) {
+    steps.forEach(s => s.classList.remove("is-active"));
+    const step = stepById.get(slideId);
+    if (step) step.classList.add("is-active");
+  }
+
+  // Click a step -> scroll carousel to that slide
+  steps.forEach(step => {
+    const targetId = step.dataset.target;
+    const target = document.getElementById(targetId);
+    const btn = step.querySelector(".story-link");
+    if (!btn || !target) return;
+
+    btn.addEventListener("click", () => {
+      // Scroll the horizontal container so the slide aligns at start
+      scroller.scrollTo({
+        left: target.offsetLeft - scroller.offsetLeft,
+        behavior: "smooth"
+      });
+      setActiveStep(targetId);
+    });
+  });
+
+  // Observe which slide is mostly visible in the horizontal scroller
+  const io = new IntersectionObserver((entries) => {
+    // pick the most visible intersecting slide
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (visible && visible.target && visible.target.id) {
+      setActiveStep(visible.target.id);
+    }
+  }, {
+    root: scroller,
+    threshold: [0.55, 0.65, 0.75] // tweak if needed
+  });
+
+  slides.forEach(s => io.observe(s));
+
+  // Initialize on slide 1
+  setActiveStep(slides[0].id);
+})();
+</script>
+
+
+</body>
+</html>
