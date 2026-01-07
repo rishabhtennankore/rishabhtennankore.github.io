@@ -1,1 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electrochemical Generation of Turgor | Rishabh Tennankore</title>
 
+  <!-- IMPORTANT: this file is /projects/photoosmotic.html -->
+  <link rel="stylesheet" href="../style.css?v=6" />
+</head>
+
+<body>
+  <main class="project-page">
+  <div class="org-corner-badge"
+   aria-label="OsmoPure attribution">
+  <img src="../../assets/logos/cu.png" >
+  </div>
+
+
+    <!-- Title bar -->
+    <header class="project-header">
+    
+      <h1 class="project-h1">Redox Flow Actuators</h1>
+      
+      <nav class="project-breadcrumb">
+        <a href="../../index.html#portfolio">Portfolio</a>
+        <span class="sep">/</span>
+        <span>Electrochemical Generation of Turgor</span> 
+      </nav>
+    </header>
+
+    <!-- Story carousel -->
+    <section class="project-media project-media--story" aria-label="Project media" id="osmopureStory">
+
+      <!-- Slide 1: Overview -->
+      <article class="media-slide" id="s1">
+        <img class="media-item" src="../../assets/Projects/echem/1.png" loading="lazy" alt="Program overview" />
+        <div class="media-caption">
+          Slide 1 — Stellar Actuation Performance of Skeletal Muscles
+        </div>
+      </article>
+      
+         
+      <!-- Slide 2 -->
+      <article class="media-slide" id="s2">
+        <img class="media-item" src="../../assets/Projects/echem/2.png" loading="lazy" />
+        <div class="media-caption">
+          Slide 2 — Biomimicry: Towards Embodied Energy
+        </div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="media-slide" id="s3">
+        <img class="media-item" src="../../assets/Projects/echem/3.png" loading="lazy"  />
+        <div class="media-caption">
+          Slide 3 — Can a flow battery be an actuator?
+        </div>
+      </article>
+
+      <!-- Slide 4 -->
+      <article class="media-slide" id="s4">
+      <img class="media-item" src="../../assets/Projects/echem/4.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 4 — Goals and Material Selection Rationale
+        </div>
+      </article>
+
+       <!-- Slide 5 -->
+      <article class="media-slide" id="s5">
+      <img class="media-item" src="../../assets/Projects/echem/5.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 5 — Defining high-level requirements for custom IEMs
+        </div>
+      </article>
+
+
+
+    <!-- Content grid -->
+    <section class="project-body">
+
+      <aside class="project-sidebar">
+        <div class="project-meta-box">
+          <div class="meta-row"><strong>Project Date</strong><span>2023-2025</span></div>
+          <div class="meta-row"><strong>Category</strong><span>Research</span></div>
+          <div class="meta-row meta-row--pills">
+  <strong>Skills</strong>
+  <span class="meta-pills">
+        <span class="pill">Click Chemistry</span>
+        <span class="pill">RAFT Synthesis</span>
+            <span class="pill">Formulations</span>
+        <span class="pill"> Membranes</span>
+    <span class="pill">Goniometry</span>
+   <span class="pill">Scanning Electron Microscopy</span>
+    <span class="pill">Potentiostat Techniques</span>
+    <span class="pill">Electrochemical Impedance Spectroscopy</span>
+    <span class="pill">Fluorescence Spectroscopy</span>
+
+    
+
+  </span>
+</div>
+        </div>
+      </aside>
+
+      <div class="project-content">
+
+        <!-- Overview -->
+        
+       <div class="project-card" id="overviewCard">
+         <h2> Abstract </h2>
+         <p>
+           Biological muscle achieves energy-efficient motion through distributed actuation, where low-voltage electrical signals gate access to stored chemical energy across many active units. Electrochemical actuators offer a compelling analogue, but existing systems are often constrained by low efficiency, slow response, or parasitic electrolysis. Here, we explore osmotic actuation driven by ion concentration gradients that naturally arise during Faradaic cycling across ion-selective membranes. We report a membrane architecture that combines high water permeability with cation selectivity by depositing an ultrathin (~100 nm) anionic hydrogel skin onto a microporous support, introducing Donnan exclusion with minimal mass-transfer resistance. Using this platform, we demonstrate low-voltage osmotic pressure modulation using a ferri/ferrocyanide redox couple. This work outlines a pathway toward low-voltage, distributed osmotic actuators with potential integration into redox-based energy storage systems.
+         </p>
+       </div>
+
+        <div class="project-card" id="disclosureCard">
+         <h2> Disclosure </h2>
+          <p>This project represents ongoing research. To preserve confidentiality and publication integrity, only the underlying motivation and core conceptual ideas are presented here. Detailed experimental methods, data, and technical analyses are intentionally omitted at this stage. </p>
+         
+       </div>
+         
+   
+ 
+  
+</div>
+
+      </div>
+    </section>
+
+  </main>
+<script>
+(() => {
+  const scroller = document.getElementById("osmopureStory");          // <-- your carousel
+  const slides = Array.from(scroller.querySelectorAll(".media-slide"));
+  const steps  = Array.from(document.querySelectorAll(".story-step"));
+
+  if (!scroller || !slides.length || !steps.length) return;
+
+  // Map slide id -> step element
+  const stepById = new Map();
+  steps.forEach(step => {
+    const id = step.dataset.target;
+    if (id) stepById.set(id, step);
+  });
+
+  // Helper: activate one step (no "grey" state that can get stuck)
+  function setActiveStep(slideId) {
+    steps.forEach(s => s.classList.remove("is-active"));
+    const step = stepById.get(slideId);
+    if (step) step.classList.add("is-active");
+  }
+
+  // Click a step -> scroll carousel to that slide
+  steps.forEach(step => {
+    const targetId = step.dataset.target;
+    const target = document.getElementById(targetId);
+    const btn = step.querySelector(".story-link");
+    if (!btn || !target) return;
+
+    btn.addEventListener("click", () => {
+      // Scroll the horizontal container so the slide aligns at start
+      scroller.scrollTo({
+        left: target.offsetLeft - scroller.offsetLeft,
+        behavior: "smooth"
+      });
+      setActiveStep(targetId);
+    });
+  });
+
+  // Observe which slide is mostly visible in the horizontal scroller
+  const io = new IntersectionObserver((entries) => {
+    // pick the most visible intersecting slide
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (visible && visible.target && visible.target.id) {
+      setActiveStep(visible.target.id);
+    }
+  }, {
+    root: scroller,
+    threshold: [0.55, 0.65, 0.75] // tweak if needed
+  });
+
+  slides.forEach(s => io.observe(s));
+
+  // Initialize on slide 1
+  setActiveStep(slides[0].id);
+})();
+</script>
+
+
+</body>
+</html>
