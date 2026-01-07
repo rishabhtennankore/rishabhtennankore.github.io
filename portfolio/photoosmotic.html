@@ -1,1 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photoresponsive Turgor Actuators | Rishabh Tennankore</title>
 
+  <!-- IMPORTANT: this file is /projects/photoosmotic.html -->
+  <link rel="stylesheet" href="../style.css?v=6" />
+</head>
+
+<body>
+  <main class="project-page">
+  <div class="org-corner-badge"
+   aria-label="OsmoPure attribution">
+  <img src="../../assets/logos/cu.png" >
+  </div>
+
+
+    <!-- Title bar -->
+    <header class="project-header">
+    
+      <h1 class="project-h1">Photoresponsive Turgor</h1>
+      
+      <nav class="project-breadcrumb">
+        <a href="../../index.html#portfolio">Portfolio</a>
+        <span class="sep">/</span>
+        <span>Photoresponsive Turgor</span>
+      </nav>
+    </header>
+
+    <!-- Story carousel -->
+    <section class="project-media project-media--story" aria-label="Project media" id="osmopureStory">
+
+      <!-- Slide 1: Overview -->
+      <article class="media-slide" id="s1">
+        <img class="media-item" src="../../assets/Projects/photoosmotic/1.png" loading="lazy" alt="Program overview" />
+        <div class="media-caption">
+          Slide 1 — Theoretical limits of photochemical acuation
+        </div>
+      </article>
+      
+         
+      <!-- Slide 2 -->
+      <article class="media-slide" id="s2">
+        <img class="media-item" src="../../assets/Projects/photoosmotic/2.png" loading="lazy" />
+        <div class="media-caption">
+          Slide 2 — Scalability of Photochemical Actuators
+        </div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="media-slide" id="s3">
+        <img class="media-item" src="../../assets/Projects/photoosmotic/3.png" loading="lazy"  />
+        <div class="media-caption">
+          Slide 3 — Turgor Modulation Hypothesis
+        </div>
+      </article>
+
+      <!-- Slide 4 -->
+      <article class="media-slide" id="s4">
+      <img class="media-item" src="../../assets/Projects/photoosmotic/4.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 4 — Hypothesis Validation
+        </div>
+      </article>
+
+       <!-- Slide 5 -->
+      <article class="media-slide" id="s5">
+      <img class="media-item" src="../../assets/Projects/photoosmotic/5.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 5 — Material selection based on size exclusion
+        </div>
+      </article>
+
+       <!-- Slide 6 -->
+      <article class="media-slide" id="s6">
+      <img class="media-item" src="../../assets/Projects/photoosmotic/6.png" loading="lazy"  />
+        <div class="media-caption">
+        Slide 6 — Device characterization  
+        </div>
+      </article>
+    </section>
+
+    <!-- Content grid -->
+    <section class="project-body">
+
+      <aside class="project-sidebar">
+        <div class="project-meta-box">
+          <div class="meta-row"><strong>Project Date</strong><span>2020-2025</span></div>
+          <div class="meta-row"><strong>Category</strong><span>Research</span></div>
+          <div class="meta-row meta-row--pills">
+  <strong>Skills</strong>
+  <span class="meta-pills">
+    <span class="pill">Polymer Synthesis</span>
+    <span class="pill">NMR</span>
+    <span class="pill">Size Exclusion Chromatography</span>
+    <span class="pill">UV/Vis Spectrometry</span>
+    <span class="pill">Dynamic Light Scattering</span>
+        <span class="pill">Profilometry</span>
+    <span class="pill">Osmometry</span>
+        <span class="pill">CAD</span>
+            <span class="pill">Arduino</span>
+
+    
+
+  </span>
+</div>
+        </div>
+      </aside>
+
+      <div class="project-content">
+
+        <!-- Overview -->
+        
+       <div class="project-card" id="overviewCard">
+         <h2> Abstract </h2>
+         <p>
+            Fluid-based (hydraulic or pneumatic) actuators are ubiquitous in the field of soft robotics because of their high force output and large strokes, but they are fundamentally limited by the need for external pumps that make them bulky and ill-suited for applications where remote actuation is required. Turgor driven deformation and stiffness modulation represent emerging bioinspired fluidic actuation strategies that can open the door to untethered soft fluidic actuators that show unique promise for use as photomechanical devices, because of the possibility of using optically thick samples without sacrificing photochemical conversion. Here, we show a reversible, photo-responsive osmotic pressure modulation of an aqueous solution of azobenzene-containing polymer, based on the difference in polarity between the trans- and cis- isomers. Building off this result, we developed a forward-osmosis based bulging-disk actuator that shows a non-linear deformation under load, and a work capacity of 0.3 kJ/m3 at room temperature. Finally, based on the remarkable agreement between model predictions and experimental observations, we discuss the work performance of the actuator in relation to thermodynamic first principles and material properties. 
+         </p>
+       </div>
+
+        <div class="project-card" id="disclosureCard">
+         <h2> Disclosure </h2>
+         <p>
+           This case study is abridged and adapted from a manuscript submitted to <a href="https://pubs.acs.org/journal/aapmcd" rel="noopener noreferrer">ACS Applied Polymer Materials </a>. 
+         </p>
+       </div>
+         
+   
+ 
+  
+</div>
+
+      </div>
+    </section>
+
+  </main>
+<script>
+(() => {
+  const scroller = document.getElementById("osmopureStory");          // <-- your carousel
+  const slides = Array.from(scroller.querySelectorAll(".media-slide"));
+  const steps  = Array.from(document.querySelectorAll(".story-step"));
+
+  if (!scroller || !slides.length || !steps.length) return;
+
+  // Map slide id -> step element
+  const stepById = new Map();
+  steps.forEach(step => {
+    const id = step.dataset.target;
+    if (id) stepById.set(id, step);
+  });
+
+  // Helper: activate one step (no "grey" state that can get stuck)
+  function setActiveStep(slideId) {
+    steps.forEach(s => s.classList.remove("is-active"));
+    const step = stepById.get(slideId);
+    if (step) step.classList.add("is-active");
+  }
+
+  // Click a step -> scroll carousel to that slide
+  steps.forEach(step => {
+    const targetId = step.dataset.target;
+    const target = document.getElementById(targetId);
+    const btn = step.querySelector(".story-link");
+    if (!btn || !target) return;
+
+    btn.addEventListener("click", () => {
+      // Scroll the horizontal container so the slide aligns at start
+      scroller.scrollTo({
+        left: target.offsetLeft - scroller.offsetLeft,
+        behavior: "smooth"
+      });
+      setActiveStep(targetId);
+    });
+  });
+
+  // Observe which slide is mostly visible in the horizontal scroller
+  const io = new IntersectionObserver((entries) => {
+    // pick the most visible intersecting slide
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (visible && visible.target && visible.target.id) {
+      setActiveStep(visible.target.id);
+    }
+  }, {
+    root: scroller,
+    threshold: [0.55, 0.65, 0.75] // tweak if needed
+  });
+
+  slides.forEach(s => io.observe(s));
+
+  // Initialize on slide 1
+  setActiveStep(slides[0].id);
+})();
+</script>
+
+
+</body>
+</html>
