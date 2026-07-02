@@ -273,6 +273,10 @@ h2 { margin-top: 0; }
   border-radius: 16px;
   padding: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+   
+.section-subtitle {
+  text-align: justify;
+}
 }
 
 .about-headshot {
